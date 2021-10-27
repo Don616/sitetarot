@@ -46,13 +46,13 @@
                                 <input id="input_senha" type="password" placeholder="Senha">
                                 <select name="" id="select_genero">
                                     <option value="">Gênero</option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="feminino">Feminino</option>
-                                    <option value="neutro">Neutro</option>
+                                    <option value="m">Masculino</option>
+                                    <option value="f">Feminino</option>
+                                    <option value="x">Neutro</option>
                                 </select>
                                 <input id="input_nascimento" type="date" placeholder="Data de Nascimento">
                                 <div id="conteudo_botao">
-                                    <button>Cadastrar</button>
+                                    <button onclick="cadastrar()">Cadastrar</button>
                                 </div>
                             </div>
                         </div>
@@ -66,13 +66,10 @@
 <script>
 
     function limparFormulario() {
-        document.getElementById("form_cadastro").reset();
+        document.getElementById("inputs_cadastro").reset();
     }
 
     function cadastrar() {
-        aguardar();
-
-        var formulario = new URLSearchParams(new FormData(document.getElementById("inputs_cadastro")));
 
         var nome = input_nome.value;
         var email = input_email.value;
@@ -82,7 +79,7 @@
         
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+        if (nome == "" || email == "" || senha == "" || genero == "" || nascimento == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
             if (nome == "") {
@@ -100,13 +97,13 @@
             if (nascimento == "") {
                 console.log('data de nascimento está em branco')
             }
-            finalizarAguardar();
+            //finalizarAguardar();
             return false;
         }
 
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            finalizarAguardar();
+            //finalizarAguardar();
             return false;
         }
 
@@ -131,13 +128,13 @@
                 window.alert("Cadastro realizado com sucesso!");
                 window.location = "./login.html";
                 limparFormulario();
-                finalizarAguardar();
+                //finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            //finalizarAguardar();
         });
 
         return false;
