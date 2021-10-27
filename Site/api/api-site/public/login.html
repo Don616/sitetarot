@@ -1,130 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AcquaTec | Login</title>
-
-    <script src="./js/funcoes.js"></script>
-
-    <link rel="icon" href="./assets/icon/favicon.ico">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="rating" content="general" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Don616">
+    <meta name="description" content="Site Tarot">
+    <meta name="keywords" content="tarot, arcanos, cards, tarô, oraculo">
+    <meta http-equiv="content-language" content="pt-br" />
+    <meta name="copyright" content="Don616 © 2021" />
+    <link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
 </head>
-
 <body>
-
-    <!--Header-->
-
-    <div class="header">
+    <header>
         <div class="container">
-            <h1>AcquaTec</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="./index.html">
-                        Inicial
-                    </a>
-                </li>
-                <li>
-                    <a href="./simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="./login.html">Login</a>
-                </li>
-                <li>
-                    <a href="./cadastro.html">Cadastro</a>
-                </li>
-            </ul>
+            <div class="logo">
+                <h1><a href="./index.html">Site Tarot</a></h1>
+            </div>
+            <select class="menu" id="menu">
+                    <option value="">Menu</option>
+                    <option value="./cadastro.html">Cadastro</option>
+                    <option value="./login.html">Login</option>
+                    <option value="./sobre.html">Sobre o Site</option>
+                    <option value="./quemsomos.html">Quem Somos</option>
+                    <option value="./creditos.html">Créditos</option>
+            </select>
         </div>
-    </div>
-
-
-    <div class="banner-login">
-        <div class="container">
-            <div class="card medio">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <form id="form_login" method="post" onsubmit="return entrar()">
-                        E-mail:
-                        <input name="email" type="text" placeholder="Login">
-                        <br>
-                        Senha:
-                        <input name="senha" type="password" placeholder="******">
-                        <br>
-                        <button class="btn" type="submit">
-                            Entrar
-                        </button>
-                    </form>
-
-
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login">
-
+    </header>
+    <main>
+        <div class="box1">
+            <div class="conteudo">
+                <img src="" alt="">
+                <h1>Logar no Sistema</h1>
+                <div class="credenciais">
+                    <div class="dados">
+                    <input id="email_input" type="email" placeholder="E-mail">
+                    <input id="senha_input" type="password" placeholder="Senha">
+                    </div>
+                    <div class="checkbox">
+                        <div id="lembrar"><input id="id_check" type="checkbox"></div>
+                        <div id="txt_lembrar"><p>Lembrar-me</p></div>
+                    </div>
+                    
+                    <button>Entrar</button>
+                    <a href="./cadastro.html">Efetuar Cadastro</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por um aluno BandTec &copy; 2021</h4>
-        </div>
-    </div>
-
-    <!-- modal?
-
-    <div id="div_modal" class="div-modal">
-        <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-        </div>
-        <div id="modal_container" class="modal-container">
-            <button onclick="fecharModal()">fechar modal</button>
-        </div>
-    </div> -->
-
-
-
+        <script src="script/header.js"></script>
 </body>
-
 </html>
-
 <script>
-
-    function limparFormulario() {
-        document.getElementById("form_login").reset();
-    }
-
     function entrar() {
         aguardar();
 
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
 
-        var email = formulario.get("email");
-        var senha = formulario.get("senha");
-
-        console.log("FORM LOGIN: ", email);
-        console.log("FORM SENHA: ", senha);
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (email == "" || senha == "") {
+        if (emailVar == "" || senhaVar == "") {
             window.alert("Preencha todos os campos para prosseguir!");
             finalizarAguardar();
             return false;
         }
 
-        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
@@ -132,7 +80,13 @@
 
         fetch("/usuarios/autenticar", {
             method: "POST",
-            body: formulario
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 

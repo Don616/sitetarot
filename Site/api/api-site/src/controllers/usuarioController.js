@@ -25,14 +25,15 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var email = req.body.email;
-    var senha = req.body.senha;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
 
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
+        
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -60,9 +61,11 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    var nome = req.body.nome;
-    var email = req.body.email;
-    var senha = req.body.senha;
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var genero = req.body.generoServer;
+    var nascimento = req.body.nascimentoServer;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -70,8 +73,13 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else {
-        usuarioModel.cadastrar(nome, email, senha)
+    } else if(genero == undefined){
+        res.status(400).send("Seu gênero está undefined!");
+    } else if(nascimento == undefined){
+        res.status(400).send("Seu nascimento está undefined!");
+    }
+        
+        usuarioModel.cadastrar(nome, email, senha, genero, nascimento)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -87,7 +95,7 @@ function cadastrar(req, res) {
                 }
             );
     }
-}
+
 
 module.exports = {
     entrar,

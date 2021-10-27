@@ -40,17 +40,17 @@
                         <div id="conteudo1"></div>
                         <div id="conteudo2">
                             <div class="titulo"><h1>Faça seu Cadastro!</h1></div>
-                            <div class="inputs">
-                                <input type="text" placeholder="Nome">
-                                <input name="email" type="email" placeholder="E-mail">
-                                <input type="password" placeholder="Senha">
+                            <div id="inputs_cadastro" class="inputs">
+                                <input id="input_nome" type="text" placeholder="Nome">
+                                <input id="input_email" name="email" type="email" placeholder="E-mail">
+                                <input id="input_senha" type="password" placeholder="Senha">
                                 <select name="" id="select_genero">
                                     <option value="">Gênero</option>
                                     <option value="masculino">Masculino</option>
                                     <option value="feminino">Feminino</option>
                                     <option value="neutro">Neutro</option>
                                 </select>
-                                <input type="date" placeholder="Data de Nascimento">
+                                <input id="input_nascimento" type="date" placeholder="Data de Nascimento">
                                 <div id="conteudo_botao">
                                     <button>Cadastrar</button>
                                 </div>
@@ -63,3 +63,84 @@
         <script src="script/header.js"></script>
 </body>
 </html>
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("inputs_cadastro")));
+
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var genero = select_genero.value;
+        var nascimento = input_nascimento.value;
+        
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "") {
+                console.log('nome está em branco')
+            }
+            if (email == "") {
+                console.log('email está em branco')
+            }
+            if (senha == "") {
+                console.log('senha está em branco')
+            }
+            if (genero == "") {
+                console.log('genero está em branco')
+            }
+            if (nascimento == "") {
+                console.log('data de nascimento está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+                generoServer: genero,
+                nascimentoServer: nascimento
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "./login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>
