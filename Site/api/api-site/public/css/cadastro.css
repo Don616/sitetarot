@@ -93,3 +93,15 @@ html{
 }
 #conteudo2 select{width: 410px;}
 #conteudo2 button:hover{ border: black solid 3px; color: black; cursor: pointer;}
+
+#imagem_olho{
+
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    position: absolute;
+    margin-left: 380px;
+    margin-top: 138px;
+
+
+}

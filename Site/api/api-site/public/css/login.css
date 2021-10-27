@@ -118,4 +118,15 @@ p {
 .conteudo a{
     color: black;
 }
+#imagem_olho{
+
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    position: absolute;
+    margin-left: 280px;
+    margin-top: 90px;
+
+
+}
 

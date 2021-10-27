@@ -1,56 +1,30 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE SITETAROT;
 
-/* para sql server - remoto - produção */
+USE SITETAROT;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-);
+CREATE TABLE USUARIO (
+ID_USUARIO INT PRIMARY KEY AUTO_INCREMENT,
+NOME_USUARIO VARCHAR(100),
+EMAIL_USUARIO VARCHAR(100),
+SENHA_USUARIO VARCHAR(100),
+GENERO_USUARIO CHAR(1),
+CHECK(GENERO_USUARIO = 'm' OR GENERO_USUARIO = 'f' OR GENERO_USUARIO = 'x'),
+NASCIMENTO_USUARIO DATE);
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
+CREATE TABLE ARCANOS (
+ID_ARCANOS INT PRIMARY KEY AUTO_INCREMENT,
+NOME_ARCANO VARCHAR(45),
+NAIPE_ARCANO VARCHAR(45),
+CATEGORIA_ARCANO VARCHAR(45));
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
+CREATE TABLE DADOS (
+ID_DADOS INT PRIMARY KEY AUTO_INCREMENT,
+FK_USUARIO INT,
+FK_ARCANOS INT,
+HORARIO TIME,
+DIA DATE,
+TIRAGENS INT,
+FOREIGN KEY(FK_USUARIO) REFERENCES USUARIO(ID_USUARIO),
+FOREIGN KEY(FK_ARCANOS) REFERENCES ARCANOS(ID_ARCANOS));
 
-
-/* para workbench - local - desenvolvimento */
-CREATE DATABASE acquatec;
-
-USE acquatec;
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
+select * from USUARIO;

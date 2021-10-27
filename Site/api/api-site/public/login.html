@@ -40,7 +40,7 @@
                 <div class="credenciais">
                     <div class="dados">
                     <input id="email_input" type="email" placeholder="E-mail">
-                    <input id="senha_input" type="password" placeholder="Senha">
+                    <input id="senha_input" type="password" placeholder="Senha"><img onclick="mostrarSenha()" id="imagem_olho" src="./imagens/invisivel_senha.png" alt="">
                     </div>
                     <div class="checkbox">
                         <div id="lembrar"><input id="id_check" type="checkbox"></div>
@@ -123,5 +123,24 @@
 
         return false;
     }
+
+    function mostrarSenha(){
+
+    var tipo_olho = senha_input.type;
+
+    if(tipo_olho == 'text'){
+        senha_input.type = 'password';
+        imagem_olho.src = "./imagens/invisivel_senha.png";
+        console.log(senha_input.type)
+    } else if(tipo_olho == 'password'){
+        senha_input.type = 'text';
+        imagem_olho.src = './imagens/senha_visivel.png';
+        console.log(senha_input.type)
+    } else{ //deixando esse else apenas para o caso do type mudar para algum outro sem querer
+        senha_input.type = 'password';
+        imagem_olho.src = "./imagens/invisivel_senha.png";
+    }
+
+}
 
 </script>

@@ -43,7 +43,7 @@
                             <div id="inputs_cadastro" class="inputs">
                                 <input id="input_nome" type="text" placeholder="Nome">
                                 <input id="input_email" name="email" type="email" placeholder="E-mail">
-                                <input id="input_senha" type="password" placeholder="Senha">
+                                <input id="input_senha" type="password" placeholder="Senha"><img onclick="mostrarSenha()" id="imagem_olho" src="./imagens/invisivel_senha.png" alt="">
                                 <select name="" id="select_genero">
                                     <option value="">Gênero</option>
                                     <option value="m">Masculino</option>
@@ -140,4 +140,22 @@
         return false;
     }
 
+    function mostrarSenha(){
+
+    var tipo_olho = input_senha.type;
+
+    if(tipo_olho == 'text'){
+        input_senha.type = 'password';
+        imagem_olho.src = "./imagens/invisivel_senha.png";
+        console.log(input_senha.type)
+    } else if(tipo_olho == 'password'){
+        input_senha.type = 'text';
+        imagem_olho.src = './imagens/senha_visivel.png';
+        console.log(input_senha.type)
+    } else{ //deixando esse else apenas para o caso do type mudar para algum outro sem querer
+        input_senha.type = 'password';
+        imagem_olho.src = "./imagens/invisivel_senha.png";
+    }
+
+}
 </script>
