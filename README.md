@@ -1,2 +1,4 @@
-# sitetarot
-Projeto Bandtec para apresentação individual
+# SiteTarot
+---
+
+### Projeto Bandtec para apresentação individual
