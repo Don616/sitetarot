@@ -1,0 +1,58 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    
+}
+header .container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo{
+
+    color: white;
+    width: max-content;
+    height: max-content;
+    
+}
+/* Primeiro Corpo */
+.box1{
+    height: 600px;
+    width: 100%;
+    background-color: red;
+    
+}
+
+/* Segundo Corpo */
+
+.box2{
+    height: 800px;
+    width: 100%;
+    background-color: blue;
+}
+.box3{
+    height: 600px;
+    width: 100%;
+    background-color: green;
+}
+footer {
+
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+
+}
