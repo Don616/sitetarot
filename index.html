@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/slide.css">
     <title>Página Inicial</title>
 </head>
 <body>
@@ -19,24 +18,13 @@
     <main>
         <div class="box1">
             <div class="container">
-                <div class="slide">
-                    <div class="slides">
-
-                        <div id="voltar" class="btn">
-                            <i class="iconseta"><</i>
-                        </div>
-                        <div id="next" class="btn">
-                            <i class="iconseta">></i>
-                        </div>
-
-                        <div id="atual" class="image"><img src="imagens/img-1.jpg" alt=""></div>
-                        <div class="image"><img src="imagens/img-2.jpg" alt=""></div>
-                        <div class="image"><img src="imagens/img-3.jpg" alt=""></div>
-
-                    </div>
-                    <div class="balls"></div>
-                </div>
-                            
+                <div class="body_content">
+                    <div class="slider">
+                        <img class="mySlides slider_animacao" src="./imagens/img-1.jpg">
+                        <img class="mySlides slider_animacao" src="./imagens/img-2.jpg">
+                        <img class="mySlides slider_animacao" src="./imagens/img-3.jpg">
+                    </div> 
+                </div>  
             </div>
         </div>
         <div class="box2">
@@ -49,12 +37,38 @@
 
             </div>
         </div>
-    </main>
-    <footer>
+        </main>
+        <footer>
             <div class="container">
                 
             </div>
         </footer>
-        <script src="script/slide.js"></script>
 </body>
 </html>
+<script>
+    // sistema do carrossel de imagens
+    var myIndex = 0;
+    carousel();
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+            myIndex = 1
+        }    
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2500);    
+    }
+
+    // sistema de manuseio da scrollbar
+    let progress = document.getElementById('progressbar');
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+            let progressHeight = (window.pageYOffset / totalHeight) * 100;
+            progress.style.height = progressHeight + "%";
+        }
+
+</script>
