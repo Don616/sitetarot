@@ -48,7 +48,9 @@
 <script>
     // sistema do carrossel de imagens
     var myIndex = 0;
+
     carousel();
+
     function carousel() {
         var i;
         var x = document.getElementsByClassName("mySlides");
@@ -63,12 +65,5 @@
         setTimeout(carousel, 2500);    
     }
 
-    // sistema de manuseio da scrollbar
-    let progress = document.getElementById('progressbar');
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        window.onscroll = function(){
-            let progressHeight = (window.pageYOffset / totalHeight) * 100;
-            progress.style.height = progressHeight + "%";
-        }
 
 </script>
