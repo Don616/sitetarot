@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/icon/favicon.ico">
+
+    <script src="./js/funcoes.js"></script>
+
+    <title>HOME</title>
+</head>
+
+<body onload="validarSessao()">
+
+    <!--header inicio-->
+
+    <div class="side-header">
+        <div class="container">
+            <h1><span class="highlight">Projeto</span> IoT Revolucionário</h1>
+            <div class="usuario">
+                <h3>Olá, <b id="b_usuario"></b></h3>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="avisos.html">Postagem</a></li>
+                    <li><a href="tempo-real.html">Tempo Real</a></li>
+                    <li><a href="grafico-chartjs.html">Gráfico de histórico recente</a></li>
+                    <li><a href="#" class="highlight" onclick="limparSessao()">LOGOUT</a></li>
+                    <li><a href="pagina-estatica-chartsjs.html">
+                            <i class="show-on-hover">IR PARA PÁGINA GRÁFICO ESTÁTICO</i>
+                        </a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--header fim-->
+
+    <div class="corpo">
+        <div class="container">
+            <h1 id="h1_login_usuario"></h1>
+
+            <button onclick="mostrarModal()">Modal</button>
+
+            <a onclick="limparSessao()" href="login.html">Sair</a>
+        </div>
+    </div>
+
+    <div id="div_modal" class="div-modal">
+        <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
+        </div>
+        <div id="modal_container" class="modal-container">
+            <button onclick="fecharModal()">fechar modal</button>
+        </div>
+    </div>
+
+    <div id="div_aguardar" class="div-aguardar">
+        <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+</script>
