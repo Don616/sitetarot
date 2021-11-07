@@ -55,14 +55,83 @@
         </div>
         </main>
         <footer>
-            <div class="container">
-                
-            </div>
+                <div class="box_footer" id="box_footer1">
+                    <div id="div_footer1">
+                        <h2>Redes Sociais</h2>
+                        <div>
+                        <img id="iconwhatsapp" src="./imagens/icons/whatsapp-pb.png" alt="icon whatsapp">
+                        <img id="icontwitter" src="./imagens/icons/Twitter-pb.png" alt="icon twitter">
+                        <img id="iconinstagram" src="./imagens/icons/Instagram-pb.png" alt="icon instagram">
+                        <img id="iconlinkedin" src="./imagens/icons/Linkedin-pb.png" alt="icon linkedin">
+                        <img id="icongithub" src="./imagens/icons/Github-pb.png" alt="icon github">
+                        </div>
+                    </div>
+                    <div id="div_footer2">
+                        <p>Criado por Donilo Jordão - Don616</p>
+                        <p>Todos os direitos reservados©</p>
+                    </div>
+                    
+                </div>
+                <div class="box_footer" id="box_footer2">
+                    <h2>Links Úteis</h2>
+                    <ul>
+                        <li><a href="">Página Inicial</a></li>
+                        <li><a href="">Quem Somos</a></li>
+                        <li><a href="">Sobre o Site</a></li>
+                        <li><a href="">Repositório Github</a></li>
+                        <li><a href="">Créditos</a></li>
+                    </ul>
+                </div>
+                <div class="box_footer" id="box_footer3">
+                    <h2>Apoio</h2>
+                    <div>
+                    <a href=""><img src="http://www.digitalschool.com.br/assets/images/logos/logo_bandtec_ds_azul.png" alt="logo bandtec"></a>
+                    </div>
+                </div>
         </footer>
         <script src="script/header.js"></script>
 </body>
 </html>
 <script>
+
+    var whatsapp = document.getElementById('iconwhatsapp');
+    var twitter = document.getElementById('icontwitter');
+    var instagram = document.getElementById('iconinstagram');
+    var linkedin = document.getElementById('iconlinkedin');
+    var github = document.getElementById('icongithub');
+    
+    whatsapp.addEventListener('mouseover',()=>{
+        iconwhatsapp.src = './imagens/icons/whatsapp-color.png'
+    })
+    whatsapp.addEventListener('mouseout',()=>{
+        iconwhatsapp.src = './imagens/icons/whatsapp-pb.png'
+    })
+    twitter.addEventListener('mouseover',()=>{
+        icontwitter.src = './imagens/icons/Twitter-color.png'
+    })
+    twitter.addEventListener('mouseout',()=>{
+        icontwitter .src = './imagens/icons/Twitter-pb.png'
+    })
+    instagram.addEventListener('mouseover',()=>{
+        iconinstagram.src = './imagens/icons/Instagram-color.png'
+    })
+    instagram.addEventListener('mouseout',()=>{
+        iconinstagram .src = './imagens/icons/Instagram-pb.png'
+    })
+    linkedin.addEventListener('mouseover',()=>{
+        iconlinkedin.src = './imagens/icons/Linkedin-color.png'
+    })
+    linkedin.addEventListener('mouseout',()=>{
+        iconlinkedin .src = './imagens/icons/Linkedin-pb.png'
+    })
+    github.addEventListener('mouseover',()=>{
+        icongithub.src = './imagens/icons/Github-color.png'
+    })
+    github.addEventListener('mouseout',()=>{
+        icongithub.src = './imagens/icons/Github-pb.png'
+    })
+
+
 
     var myIndex = 0;
 
