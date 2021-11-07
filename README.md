@@ -32,13 +32,13 @@ Criar uma página online onde o usuário cadastrado é capaz de simular uma tira
  - [ ] Criação da  Login / Cadastro;
  - [ ] Criação do Banco de Dados (Modelagem);
  - [ ] Criação do Banco de Dados (Script);
- - [ ] Escrita da Documentação;
- - [ ] Kanbam Implementado;
+ - [x] Escrita da Documentação;
+ - [x] Kanbam Implementado;
  - [ ] API integrada;
  - [ ] Slide com ligação com socioemocional;
  
 > Marcos do Projeto
- - [ ] (07/11) - Finalização da Documentação e Backlog;
+ - [x] (07/11) - Finalização da Documentação e Backlog;
  - [ ] (10/11) - Finalição da Estrutura básica (HTML) do site;
  - [ ] (13/11) - Finalização do CSS do site + Conteúdo;
  - [ ] (15/11) - Finalização da parte Lógica (JS) do site;
@@ -83,7 +83,7 @@ O objetivo do projeto é que seja individual, onde o aluno obrigatoriamente ser�
 - Editor de código Visual Studio Code (VSCode);
 - Sistema de controle de versão Git assim como seu repositório na nuvem; 
 
-> Sustentaçaõ
+> Sustentação
 
  - Manutenção do banco de dados;
  - Atualização constante do site;
