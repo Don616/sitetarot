@@ -1,0 +1,85 @@
+.box1{
+    
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar{
+    height: 100%;
+    width: 400px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../imagens/matrix.png');
+    border-radius: 40px 40px 0px 0px;
+    
+}
+.conteudo{
+    height: 100%;
+    width: 950px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px 40px 0px 0px;
+}
+
+
+.foto img{
+    width: 120px;
+    height: 120px;
+    background:#ccc;
+    margin-top:10px;
+    margin-left:140px;
+     /* Rotação */  
+    transform: rotate(0deg); 
+    background-color: purple;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 3px 3px 3px black;
+} 
+
+.nome {
+    width: 100%;
+    height: 50px;
+    margin-top:17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(246, 246, 252);
+    font-weight: bolder;
+    text-shadow: 3px 3px 3px black;
+    font-size: 22px;
+    
+}
+.nome span {
+    width: 200px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #92929279;
+
+
+}
+
+
+.redes {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.redes img{
+
+    height: 45px;
+    width: 45px;
+    margin: 4px;
+    
+}
+.infos {
+    width: 100%;
+    height: 300px;
+
+}

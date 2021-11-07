@@ -13,6 +13,7 @@
     <meta name="copyright" content="Don616 © 2021" />
     <link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quemsomos.css">
     <title>Quem Somos</title>
 </head>
 <body>
@@ -33,26 +34,75 @@
     </header>
     <main>
         <div class="box1">
-            <div class="container">
-                
+            <div class="sidebar">
+                <div class="foto">
+                    <img src="https://avatars.githubusercontent.com/u/54156395?v=4" alt="">
+                </div>
+                <div class="nome">
+                    <span><p>Donilo J. Pontes</p></span>
+                </div>
+                <div class="redes">
+                    <div id="rede1">
+                        <a href="mailto:contatodonilo@gmail.com?subject=Olá%20novamente!" target="_blank"><img id="icongoogle" src="./imagens/icons/google-pb.png" alt="icon google"></a> 
+                        <a href="https://www.linkedin.com/in/don616/" target="_blank"><img id="iconlinkedin" src="./imagens/icons/Linkedin-pb.png" alt="icon linkedin"></a> 
+                       <a href="https://github.com/Don616" target="_blank"><img id="icongithub" src="./imagens/icons/Github-pb.png" alt="icon github"></a> 
+                       <a href="https://api.whatsapp.com/send?phone=5511978580440" target="_blank"><img id="iconwhatsapp" src="./imagens/icons/whatsapp-pb.png" alt="icon whatsapp"></a> 
+                       <a href="https://twitter.com/Don616_" target="_blank"><img id="icontwitter" src="./imagens/icons/Twitter-pb.png" alt="icon twitter"></a> 
+                       <a href="https://www.instagram.com/don616_/" target="_blank"><img id="iconinstagram" src="./imagens/icons/Instagram-pb.png" alt="icon instagram"></a> 
+                    
+                    </div>
+                    
+                        
+                </div>
+                <div class="infos"></div>
             </div>
+            <div class="conteudo"></div>
         </div>
-        <div class="box2">
-            <div class="container">
-
-            </div>
-        </div>
-        <div class="box3">
-            <div class="container">
-
-            </div>
-        </div>
-        </main>
-        <footer>
-            <div class="container">
-                
-            </div>
-        </footer>
         <script src="script/header.js"></script>
 </body>
 </html>
+<script>
+    var google = document.getElementById('icongoogle');
+    var whatsapp = document.getElementById('iconwhatsapp');
+    var twitter = document.getElementById('icontwitter');
+    var instagram = document.getElementById('iconinstagram');
+    var linkedin = document.getElementById('iconlinkedin');
+    var github = document.getElementById('icongithub');
+    
+    google.addEventListener('mouseover',()=>{
+        icongoogle.src = './imagens/icons/google-color.png'
+    })
+    google.addEventListener('mouseout',()=>{
+        icongoogle.src = './imagens/icons/google-pb.png'
+    })
+    whatsapp.addEventListener('mouseover',()=>{
+        iconwhatsapp.src = './imagens/icons/whatsapp-color.png'
+    })
+    whatsapp.addEventListener('mouseout',()=>{
+        iconwhatsapp.src = './imagens/icons/whatsapp-pb.png'
+    })
+    twitter.addEventListener('mouseover',()=>{
+        icontwitter.src = './imagens/icons/Twitter-color.png'
+    })
+    twitter.addEventListener('mouseout',()=>{
+        icontwitter .src = './imagens/icons/Twitter-pb.png'
+    })
+    instagram.addEventListener('mouseover',()=>{
+        iconinstagram.src = './imagens/icons/Instagram-color.png'
+    })
+    instagram.addEventListener('mouseout',()=>{
+        iconinstagram .src = './imagens/icons/Instagram-pb.png'
+    })
+    linkedin.addEventListener('mouseover',()=>{
+        iconlinkedin.src = './imagens/icons/Linkedin-color.png'
+    })
+    linkedin.addEventListener('mouseout',()=>{
+        iconlinkedin .src = './imagens/icons/Linkedin-pb.png'
+    })
+    github.addEventListener('mouseover',()=>{
+        icongithub.src = './imagens/icons/Github-color.png'
+    })
+    github.addEventListener('mouseout',()=>{
+        icongithub.src = './imagens/icons/Github-pb.png'
+    })
+</script>

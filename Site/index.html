@@ -59,6 +59,7 @@
                     <div id="div_footer1">
                         <h2>Redes Sociais</h2>
                         <div>
+                       <a href="mailto:contatodonilo@gmail.com?subject=Olá%20novamente!" target="_blank"><img id="icongoogle" src="./imagens/icons/google-pb.png" alt="icon google"></a> 
                        <a href="https://api.whatsapp.com/send?phone=5511978580440" target="_blank"><img id="iconwhatsapp" src="./imagens/icons/whatsapp-pb.png" alt="icon whatsapp"></a> 
                        <a href="https://twitter.com/Don616_" target="_blank"><img id="icontwitter" src="./imagens/icons/Twitter-pb.png" alt="icon twitter"></a> 
                        <a href="https://www.instagram.com/don616_/" target="_blank"><img id="iconinstagram" src="./imagens/icons/Instagram-pb.png" alt="icon instagram"></a> 
@@ -94,12 +95,19 @@
 </html>
 <script>
 
+    var google = document.getElementById('icongoogle');
     var whatsapp = document.getElementById('iconwhatsapp');
     var twitter = document.getElementById('icontwitter');
     var instagram = document.getElementById('iconinstagram');
     var linkedin = document.getElementById('iconlinkedin');
     var github = document.getElementById('icongithub');
     
+    google.addEventListener('mouseover',()=>{
+        icongoogle.src = './imagens/icons/google-color.png'
+    })
+    google.addEventListener('mouseout',()=>{
+        icongoogle.src = './imagens/icons/google-pb.png'
+    })
     whatsapp.addEventListener('mouseover',()=>{
         iconwhatsapp.src = './imagens/icons/whatsapp-color.png'
     })
