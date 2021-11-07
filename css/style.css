@@ -1,5 +1,6 @@
 html{
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -41,7 +42,7 @@ header .container{
 
     height: 600px;
     width: 100%;
-    background-color: red;
+    
     
 }
 .box1 .container{
@@ -55,7 +56,7 @@ header .container{
 
 .slider_animacao {
     position: relative;
-    animation: animateright 2.5s
+    animation: animateright 2.0s
 }
 
 @keyframes animateright {
