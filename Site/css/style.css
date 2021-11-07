@@ -5,6 +5,8 @@ html{
 ::-webkit-scrollbar {
     display: none;
 }
+a {text-decoration: none;}
+a:visited{color:#fff}
 
 body {
     padding: 0;
@@ -26,7 +28,8 @@ header {
 header .container{
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+
     align-items: center;
 
 }
@@ -37,12 +40,27 @@ header .container{
     height: max-content;
     
 }
+header .menu {
+
+    width: 150px;
+    height: 30px;
+    background-color: rgb(68, 60, 60);
+    border: black solid 1px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
+ 
+
 /* Primeiro Corpo */
 .box1{
 
     height: 600px;
     width: 100%;
-    
+    background-color: black;
     
 }
 .box1 .container{
