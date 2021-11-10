@@ -39,7 +39,7 @@ Criar uma página online onde o usuário cadastrado é capaz de simular uma tira
  
 > Marcos do Projeto
  - [x] (07/11) - Finalização da Documentação e Backlog;
- - [ ] (10/11) - Finalização da Estrutura básica (HTML) do site;
+ - [x] (10/11) - Finalização da Estrutura básica (HTML) do site;
  - [ ] (13/11) - Finalização do CSS do site + Conteúdo;
  - [ ] (15/11) - Finalização da parte Lógica (JS) do site;
  - [ ] (18/11) - Finalização da Dashboard em funcionamento + Slide;
