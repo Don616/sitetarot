@@ -1,0 +1,12 @@
+html{
+    overflow: hidden;
+}
+.box1{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #6a2a8f;*/
+    background-image: linear-gradient(black, #6a2a8f);
+}
