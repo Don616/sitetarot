@@ -10,7 +10,8 @@ html{
 ::-webkit-scrollbar {
     display: none;
 }
-a {text-decoration: none;}
+
+a {text-decoration: none;color:#fff}
 a:visited{color:#fff}
 
 h1{
@@ -72,7 +73,6 @@ header .menu {
     height: 600px;
     width: 100%;
     background-color: #6a2a8f;
-    margin-left: 100px;
     
 }
 .box1 .container{
