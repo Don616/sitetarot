@@ -19,6 +19,7 @@ html{
     justify-content: flex-start;
     flex-direction: column;
     border-radius: 30px;
+    box-shadow: 5px 5px 5px black;
 }
 .titulo{
     height: 15%;
@@ -46,7 +47,7 @@ html{
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
-    background-color: #bfb0c78c;
+    background-color: #291037;
     border-radius: 0px 30px 30px 0px;
 }
 
@@ -75,7 +76,8 @@ html{
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
-    color: grey;
+    color: #291037;
+    font-weight: bold;
     
 
 }
