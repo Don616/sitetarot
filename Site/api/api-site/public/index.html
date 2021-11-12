@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/home.css">
     <title>Página Inicial</title>
 </head>
-<body>
+<body onload="gerarCarta()">
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -41,12 +41,17 @@
         <div class="box1">
             <div class="container">
                 <div class="body_content">
-                    <div class="slider">
-                        <img class="mySlides slider_animacao" src="./imagens/img-1.png">
-                        <img class="mySlides slider_animacao" src="./imagens/img-2.png">
-                        <img class="mySlides slider_animacao" src="./imagens/img-3.png">
+                    <div id="slider" class="slider">
+                        <img id="img1" class="mySlides slider_animacao" src="">
+                        <img id="img2" class="mySlides slider_animacao" src="">
+                        <img id="img3" class="mySlides slider_animacao" src="">
+                        <img id="img4" class="mySlides slider_animacao" src="">
+                        <img id="img5" class="mySlides slider_animacao" src="">
                     </div> 
                 </div> 
+                <div class="texto2">
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ipsam exercitationem laboriosam commodi aspernatur temporibus id natus animi minima, dolores molestiae facere, debitis dolore obcaecati sit inventore eaque repudiandae ad. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum at impedit quod, quasi sint obcaecati adipisci quas ad atque unde, doloribus in quis sapiente! Itaque perferendis quia quibusdam blanditiis debitis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eligendi aliquam ipsam, asperiores commodi quam voluptate tempora architecto provident harum rerum minus ex obcaecati quisquam, beatae eveniet iste sapiente animi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde exercitationem accusamus modi voluptatum, veniam expedita tempore. Quos officia similique mollitia odio suscipit repudiandae facilis magnam saepe id, dolores illo atque!"</p>
+                </div>
             </div>
         </div>
         <div class="box3">
@@ -158,6 +163,25 @@
         }    
         x[myIndex-1].style.display = "block";
         setTimeout(carousel, 5000);    
+    }
+
+    //Gerador de Carta para o carrosel
+
+    function gerarCarta(){
+
+        var rand1 = (Math.random() * 77).toFixed(0);
+        var rand2 = (Math.random() * 77).toFixed(0);
+        var rand3 = (Math.random() * 77).toFixed(0);
+        var rand4 = (Math.random() * 77).toFixed(0);
+        var rand5 = (Math.random() * 77).toFixed(0);
+        
+        img1.src = `./imagens/Toth/${rand1}.png`;
+        img2.src = `./imagens/Toth/${rand2}.png`;
+        img3.src = `./imagens/Toth/${rand3}.png`;
+        img4.src = `./imagens/Toth/${rand4}.png`;
+        img5.src = `./imagens/Toth/${rand5}.png`;
+
+
     }
 
 

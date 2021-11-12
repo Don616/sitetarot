@@ -77,26 +77,46 @@ header .menu {
 }
 .box1 .container{
     width: 100%;
+    display: flex;
 }
 .slider img {
-    width: 30%;
-    height: 40%;
-
+    width: 120%;
+    height: 120%;
+    margin-top: 50px; 
 }
+
+
 
 .slider_animacao {
     position: relative;
-    animation: animateright 5.0s
+    animation: animateright 20s;
+
 }
 
 @keyframes animateright {
     from{
-        right:-300px;
+        right:0;
         opacity:0;
     } to {
         right:0;
         opacity:1;
     }
+}
+.texto2{
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    margin-left: 300px;
+    width: 800px;
+    
+}
+.texto2 p{
+    color: rgb(219, 188, 188);
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
 }
 
 /* Segundo Corpo */
