@@ -51,20 +51,19 @@ header .container{
     
     
 }
-header .menu {
 
-    width: 150px;
-    height: 30px;
-    background-color: rgb(68, 60, 60);
-    border: black solid 1px;
-    border-radius: 15px;
+.navbar{
+
+    width: 600px;
     display: flex;
-    text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    list-style: none;
 
 }
-
+.navbar a{
+    font-size: 20px;
+}
  
 
 /* Primeiro Corpo */
