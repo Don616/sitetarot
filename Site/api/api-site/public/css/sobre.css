@@ -27,6 +27,7 @@
     text-align: center;
     letter-spacing: 4px;
     text-shadow: 2px 2px 2px black;
+    margin-bottom: 50px;
 
 }
 .conteudo h1{
@@ -41,7 +42,7 @@
 }
 
 .grid .caixa{
-    margin: 25px 100px 0px 100px;
+    margin: 5px 100px 20px 100px;
     
 }
 
