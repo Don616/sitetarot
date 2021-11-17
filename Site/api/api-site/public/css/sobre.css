@@ -1,0 +1,59 @@
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+}
+.conteudo .cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.conteudo .texto{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.conteudo .texto p{
+
+    color: rgb(219, 188, 188);
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
+
+}
+.conteudo h1{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px;
+    
+}
+
+.grid .caixa{
+    margin: 25px 100px 0px 100px;
+    
+}
+
+.grid img {
+	
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+    cursor: pointer;
+}
+.grid img:hover {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
