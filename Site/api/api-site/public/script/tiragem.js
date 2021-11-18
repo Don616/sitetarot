@@ -79,8 +79,12 @@ function arcanosMaiores(){
         item.setAttribute('src',`./imagens/Toth/${i}.png`);
         item.addEventListener('click', ()=>{
 
-            carta_escolhida = `./imagens/Toth/${i}.png`
+            carta_escolhida = `./imagens/Toth/${i}.png` 
+            caixa2.style.display = 'none';
+            caixa3.style.display = 'flex';
+            carta_sorteada.src = `${carta_escolhida}`
             console.log(carta_escolhida)
+
         })
         cartas.appendChild(item);
 
@@ -99,8 +103,12 @@ function arcanosMenores(){
         item.setAttribute('src',`./imagens/Toth/${i}.png`);
         item.addEventListener('click', ()=>{
 
-            carta_escolhida = `./imagens/Toth/${i}.png`
+            carta_escolhida = `./imagens/Toth/${i}.png` 
+            caixa2.style.display = 'none';
+            caixa3.style.display = 'flex';
+            carta_sorteada.src = `${carta_escolhida}`
             console.log(carta_escolhida)
+
         })
         cartas.appendChild(item);
 
