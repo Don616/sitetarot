@@ -88,7 +88,7 @@ header .container{
 
 .slider_animacao {
     position: relative;
-    animation: animateright 20s;
+    animation: animateright 5s;
 
 }
 
@@ -109,7 +109,7 @@ header .container{
     width: 800px;
     
 }
-.texto2 p{
+.container p{
     color: rgb(219, 188, 188);
     font-size: 20px;
     font-style: italic;

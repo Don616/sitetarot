@@ -1,3 +1,10 @@
+.centralizadora{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
 .box1{
 
     height: 600px;
@@ -6,3 +13,62 @@
     margin-left: 120px;
     
 }
+.caixa h1{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+.caixa{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.caixa1{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+ span{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 50px;
+    margin-top: 20px;
+    justify-self: center;
+    align-self: center;
+
+}
+.caixa2{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.caixa3{
+    width: 25%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.caixa3 img{
+    height: 300px;
+    margin-bottom: 60px;
+}
+#box3 a{
+    margin-top: 50px;
+    margin-bottom: 17px;
+    height: 35px;
+    width: 400px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    color: #291037;
+    font-weight: bold;
+
+}
+.caixa button:hover{ border: black solid 3px; color: black; cursor: pointer;}
