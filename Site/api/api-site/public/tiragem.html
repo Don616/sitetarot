@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="rating" content="general" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Don616">
+    <meta name="description" content="Site Tarot">
+    <meta name="keywords" content="tarot, arcanos, cards, tarô, oraculo">
+    <meta http-equiv="content-language" content="pt-br" />
+    <meta name="copyright" content="Don616 © 2021" />
+    <link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tiragem.css">
+    <title>Tiragem</title>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="./index.html">Site Tarot</a></h1>
+            </div>
+            <ul class="navbar">
+
+                <li><a href="./sobre.html">Sobre o site</a></li>
+                <li><a href="./quemsomos.html">Quem Somos</a></li>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./creditos.html">Créditos</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="box2">
+            <div class="caixa">
+                <div id="caixa1" class="caixa1">
+                    <h1>Escolha uma Modalidade</h1>
+                    <select name="" id="modalidades">
+                        <option value="">Modalidades</option>
+                        <option value="todos">Todas as Cartas</option>
+                        <option value="maiores">Somente Arcanos Maiores</option>
+                        <option value="menores">Somente Arcanos Menores</option>
+                    </select>
+                    <button onclick="continuar()">Continuar</button>
+                </div>
+                <div id="caixa2" class="caixa2">
+                    <h1>Clique nas cartas para escolher</h1>
+                    <div id="cartas" class="cartas"></div>
+                    <div class="botoes">
+                        <button onclick="voltar1()">Voltar</button>
+                    </div>
+
+
+                </div>
+                <div id="caixa3" class="caixa3">
+                    <h1>Carta Sorteada</h1>
+                    <img id="carta_sorteada" src="" alt="">
+                    <div class="space">
+                        <button onclick="voltar1()">Tentar novamente</button>
+                        <button onclick="salvar()">Salvar Carta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./script/tiragem.js"></script>
+</body>
+</html>

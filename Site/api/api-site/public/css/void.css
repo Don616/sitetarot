@@ -1,0 +1,38 @@
+html{
+    overflow: hidden;
+}
+h1{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+.caixa1{
+    display: flex;
+    height: 75%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.box2{
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.opcao{
+    height: 15%;
+    width: 20%;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 2px 2px 2px black;
+    font-family: 'Zen Antique', serif;
+    box-shadow: 3px 3px 3px black;
+}
+
+.opcao:hover{
+    background-color: #6a2a8f;
+}

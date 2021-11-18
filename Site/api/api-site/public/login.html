@@ -49,7 +49,7 @@
                         <div id="txt_lembrar"><p>Lembrar-me</p></div>
                     </div>
                     
-                    <button>Entrar</button>
+                    <button onclick="entrar()">Entrar</button>
                     <a href="./cadastro.html">Efetuar Cadastro</a>
                 </div>
             </div>
@@ -59,7 +59,9 @@
 </html>
 <script>
     function entrar() {
-        aguardar();
+        
+        // LEMBRA DE TIRAR ESSA MERDA AQUI ABAIXO DEPOIS IDIOTA!!!!!
+        window.location = "./void.html";
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -70,13 +72,13 @@
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (emailVar == "" || senhaVar == "") {
             window.alert("Preencha todos os campos para prosseguir!");
-            finalizarAguardar();
+            //finalizarAguardar();
             return false;
         }
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            finalizarAguardar();
+            //finalizarAguardar();
             return false;
         }
 
@@ -115,7 +117,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    //finalizarAguardar(texto);
                 });
             }
 
