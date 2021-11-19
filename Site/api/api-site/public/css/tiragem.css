@@ -27,8 +27,7 @@ html{
 .caixa1 select{
     height: 40px;
     width: 450px;
-    color: black;
-    background-color: transparent;
+    background-color: #6a2a8f0a;
     border: none;
     font-size: 30px;
     font-family: 'Zen Antique', serif;

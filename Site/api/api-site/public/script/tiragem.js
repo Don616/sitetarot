@@ -41,7 +41,7 @@ function carousel() {
         myIndex = 1
     }    
     x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 50);    
+    setTimeout(carousel, 1);    
 }
 
 function todosArcanos(){
@@ -50,19 +50,23 @@ function todosArcanos(){
 
         var cartas = document.getElementById('cartas')
         var item = document.createElement('img');
+        var botao = document.getElementById('escolher')
         item.setAttribute('id',`img${i}`);
         item.setAttribute('class',`mySlides slider_animacao`);
         item.setAttribute('src',`./imagens/Toth/${i}.png`);
-        item.addEventListener('click', ()=>{
+        botao.addEventListener('click', ()=>{
 
-            carta_escolhida = `./imagens/Toth/${i}.png` 
+            let rand = (Math.random() *77).toFixed(0)
+            carta_escolhida = `./imagens/Toth/${rand}.png` 
             caixa2.style.display = 'none';
             caixa3.style.display = 'flex';
             carta_sorteada.src = `${carta_escolhida}`
             console.log(carta_escolhida)
 
         })
+
         cartas.appendChild(item);
+        
 
     }
     carousel();
@@ -74,18 +78,21 @@ function arcanosMaiores(){
 
         var cartas = document.getElementById('cartas')
         var item = document.createElement('img');
+        var botao = document.getElementById('escolher')
         item.setAttribute('id',`img${i}`);
         item.setAttribute('class',`mySlides slider_animacao`);
         item.setAttribute('src',`./imagens/Toth/${i}.png`);
-        item.addEventListener('click', ()=>{
+        botao.addEventListener('click', ()=>{
 
-            carta_escolhida = `./imagens/Toth/${i}.png` 
+            let rand = (Math.random() *21).toFixed(0)
+            carta_escolhida = `./imagens/Toth/${rand}.png` 
             caixa2.style.display = 'none';
             caixa3.style.display = 'flex';
             carta_sorteada.src = `${carta_escolhida}`
             console.log(carta_escolhida)
 
         })
+
         cartas.appendChild(item);
 
     }
@@ -98,18 +105,21 @@ function arcanosMenores(){
 
         var cartas = document.getElementById('cartas')
         var item = document.createElement('img');
+        var botao = document.getElementById('escolher')
         item.setAttribute('id',`img${i}`);
         item.setAttribute('class',`mySlides slider_animacao`);
         item.setAttribute('src',`./imagens/Toth/${i}.png`);
-        item.addEventListener('click', ()=>{
+        botao.addEventListener('click', ()=>{
 
-            carta_escolhida = `./imagens/Toth/${i}.png` 
+            let rand = (Math.random() *56 +21).toFixed(0)
+            carta_escolhida = `./imagens/Toth/${rand}.png` 
             caixa2.style.display = 'none';
             caixa3.style.display = 'flex';
             carta_sorteada.src = `${carta_escolhida}`
             console.log(carta_escolhida)
 
         })
+
         cartas.appendChild(item);
 
     }
