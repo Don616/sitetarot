@@ -27,10 +27,10 @@ function cadastrar(nome, email, senha, genero, nascimento) {
     return database.executar(instrucao);
 }
 
-function cadastrar_cartas(numero_arcano, nome_arcano, naipe_arcano){
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", numero_arcano, nome_arcano, naipe_arcano);
+function cadastrar_cartas(numero_arcano){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", numero_arcano);
     var instrucao = `
-        INSERT INTO ARCANOS (NUMERO_ARCANO, NOME_ARCANO, NAIPE_ARCANO) VALUES ('${numero_arcano}', '${nome_arcano}', '${naipe_arcano}');
+        INSERT INTO DADOS (FK_ARCANOS) VALUES ('${numero_arcano}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
