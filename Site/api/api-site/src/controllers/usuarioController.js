@@ -95,11 +95,43 @@ function cadastrar(req, res) {
                 }
             );
     }
+// my funcs
 
+function cadastrar_cartas(req, res) {
+    var numero_arcano = req.body.numeroArcanoServer;
+    var nome_arcano = req.body.nomeArcanoServer;
+    var naipe_arcano = req.body.naipeArcanoServer;
+
+
+    if (numero_arcano == undefined) {
+        res.status(400).send("Seu numero arcano está undefined!");
+    } else if (nome_arcano == undefined) {
+        res.status(400).send("Seu nome arcano está undefined!");
+    } else if (naipe_arcano == undefined) {
+        res.status(400).send("Seu naipe arcano está undefined!");
+    }
+  
+        usuarioModel.cadastrar(numero_arcano, nome_arcano, naipe_arcano)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    cadastrar_cartas
 }
