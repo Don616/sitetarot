@@ -20,16 +20,17 @@ html{
 .user{
     width: 60%;
     height: 20%;
-    background-color: blue;
+
 }
 .box_conteudo{
 
     width: 90%;
     height: 20%;
-    background-color: red;
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
 
 }
 .box_conteudo button{
@@ -43,57 +44,72 @@ html{
     display: flex;
     height: 100%;
     width: 75%;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    background-color: blue;
 }
-.linha1{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    justify-content: space-between;
-    
-}
-.linha2{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    justify-content: space-between;
-    
-}
+
 .grafico{
-    width: 50%;
-    height: 100%;
-    
-    
+    width: 60%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 /* CONTEUDO 2 */
 
-.conteudo2{
-    display: none;
-    height: 100%;
-    width: 75%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: blue;
 
-}
 .coluna{
     height: 100%;
-    width: 33%;
-    background-color: coral;
-}
-
-
-/* CONTEUDO 3 */
-.conteudo3{
-    display: none;
-    height: 100%;
-    width: 75%;
+    width: 40%;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: blue;
+    justify-content: flex-start;
 }
+.sidebar .titulo{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.sidebar .titulo h1{
+    color: rgb(219, 188, 188);
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
+}
+.sidebar .corpo{
+    width: 100%;
+    height: 75%;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.conteudo1 .titulo{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.conteudo1 .titulo h1{
+    color: rgb(219, 188, 188);
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
+}
+.conteudo1 .corpo{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
