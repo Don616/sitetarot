@@ -1,8 +1,11 @@
+import { userInfo } from "os";
+
 var modalidade;
 var myIndex = 0;
 var x;
 var carta_escolhida;
 var rand;
+var user = sessionStorage.ID_USUARIO;
 
 function continuar(){
 
@@ -139,6 +142,7 @@ function salvar(){
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
+            idUsuarioServer: user,
             numeroArcanoServer: rand
 
         })

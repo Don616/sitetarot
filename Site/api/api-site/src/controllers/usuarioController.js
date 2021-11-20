@@ -98,13 +98,14 @@ function cadastrar(req, res) {
 // my funcs
 
 function cadastrar_cartas(req, res) {
+    var id_usuario = req.body.idUsuarioServer;
     var numero_arcano = req.body.numeroArcanoServer;
 
     if (numero_arcano == undefined) {
         res.status(400).send("Seu numero arcano está undefined!");
     } 
   
-        usuarioModel.cadastrar(numero_arcano)
+        usuarioModel.cadastrar(id_usuario, numero_arcano)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -19,4 +19,18 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+// minhas rotas
+
+router.post("/cadastrarCartas", function (req, res) {
+    usuarioController.cadastrar_cartas(req, res);
+})
+
+router.get("/pegarDados", function (req, res) {
+    usuarioController.pegar_dados(req, res);
+});
+
+router.get("/pegarUser", function (req, res) {
+    usuarioController.pegar_user(req, res);
+});
+
 module.exports = router;
