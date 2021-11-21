@@ -1,4 +1,4 @@
-import { userInfo } from "os";
+
 
 var modalidade;
 var myIndex = 0;
@@ -22,11 +22,8 @@ function continuar(){
         arcanosMenores()
     }
     
-
-    
-
-    
 }
+
 function voltar1(){
 
 
