@@ -84,7 +84,7 @@
 }
 .modal{
 
-    display: flex; 
+    display: none; 
     position: fixed; 
     z-index: 1; 
     margin: 0 auto;
