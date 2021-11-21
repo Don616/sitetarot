@@ -34,6 +34,18 @@
     </header>
     <main>
         <div class="box2">
+            <div id="modal" class="modal">
+                <div class="carta"><img id="imgmodal" src="./imagens/Toth/1.png" alt=""></div>
+                <div class="conteudo2">
+                    <div class="cabeçalho">
+                        <div class="titulo"><h1 id="nome_carta">Alguma coisa</h1></div>
+                        <div onclick="fecharModal()" id="fechar" class="fechar">X</div>
+                    </div>
+                    <div id="corpomodal" class="corpomodal">
+                        <p id="txt_cards"></p>
+                    </div>
+                </div>
+            </div>
             <div class="caixa">
                 <div id="caixa1" class="caixa1">
                     <h1>Escolha uma Modalidade</h1>
@@ -58,7 +70,7 @@
                 </div>
                 <div id="caixa3" class="caixa3">
                     <h1>Carta Sorteada</h1>
-                    <img id="carta_sorteada" src="" alt="">
+                    <img onclick="abrirModal()" id="carta_sorteada" src="" alt="">
                     <div class="space">
                         <button onclick="voltar1()">Tentar novamente</button>
                         <button onclick="salvar()">Salvar Carta</button>
@@ -68,5 +80,6 @@
         </div>
     </main>
     <script src="./script/tiragem.js"></script>
+    <script src="script/modal.js"></script>
 </body>
 </html>

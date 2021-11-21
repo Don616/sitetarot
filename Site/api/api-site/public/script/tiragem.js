@@ -50,6 +50,7 @@ function todosArcanos(){
     for(let i = 0; i < 77; i++){
 
         var cartas = document.getElementById('cartas')
+        var sorteada = document.getElementById('carta_sorteada')
         var item = document.createElement('img');
         var botao = document.getElementById('escolher')
         item.setAttribute('id',`img${i}`);
@@ -61,8 +62,9 @@ function todosArcanos(){
             carta_escolhida = `./imagens/Toth/${rand}.png` 
             caixa2.style.display = 'none';
             caixa3.style.display = 'flex';
-            carta_sorteada.src = `${carta_escolhida}`
-            console.log(carta_escolhida)
+            sorteada.src = `${carta_escolhida}`
+            sorteada.id = `${rand}`
+            
 
         })
 
