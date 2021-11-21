@@ -92,7 +92,7 @@
     width: 60%; 
     height: 70%; 
     overflow: auto; 
-    background: red;
+    background: #300b46;
     flex-direction: row;
     justify-content: space-between;
     border: black solid 4px;
@@ -106,7 +106,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #300b46;
     border-right: black solid 4px;
 
 }
@@ -134,13 +134,15 @@
     align-items: center;
     height: 10%;
     width: 100%;
+    color: rgb(219, 188, 188);
+
 
 }
 .modal .conteudo2 .cabeçalho .titulo {
 
     height: 100%;
     width: 90%;
-    background-color: #38322e;
+    background-color: #300b46;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,16 +157,32 @@
     align-items: center;
     font-size: 25px;
     cursor: pointer;
-    
-    
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
 
+}
+.modal .conteudo2 .cabeçalho .fechar:hover {
+    color: black;
+    
 }
 .modal .conteudo2 .corpomodal {
 
     display: flex;
     height: 90%;
     width: 100%;
-    background-color: crimson;
+    overflow: auto;    
+
+}
+.modal .conteudo2 .corpomodal p{
+
+    margin-left: 50px;
+    margin-right: 25px;
+    margin-top: 25px;
+    
+    color: rgb(219, 188, 188);
+    font-size: 20px;
+    
+    /*text-shadow: 2px 2px 2px black;*/
 
 }
  

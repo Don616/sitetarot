@@ -60,12 +60,15 @@
                         <div class="titulo"><h1 id="nome_carta">Alguma coisa</h1></div>
                         <div onclick="fecharModal()" id="fechar" class="fechar">X</div>
                     </div>
-                    <div class="corpomodal"></div>
+                    <div id="corpomodal" class="corpomodal">
+                        <p id="txt_cards"></p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="back" class="back-to-top"><a href="#header">⬆</a></div>
         <script src="script/header.js"></script>
+        
         
 </body>
 </html>
@@ -88,20 +91,29 @@
     var id_carta = undefined;
     document.body.onclick = function(){
 
-        console.log(event.target.tagName)
-        console.log(event.target.id)
-        
-
         if(event.target.tagName == 'IMG' && event.target.id != 'imgmodal'){
             id_carta = event.target.id;
             imgmodal.src = `./imagens/Toth/${id_carta}.png`
             nome_carta.innerHTML = `${nome_arcano[id_carta]}`;
+            txt_cards.innerHTML = `${texto_cartas[id_carta]}`;
         } 
-        
-        
+                   
     }
 
     function abrirModal(){modal.style.display = `flex`;}
     function fecharModal(){modal.style.display = `none`;}
+
     
+</script>
+
+<script>
+// DESCRIÇÃO DOS ARCANOS
+
+
+
+var card0 = `No louco, tudo é leve e solto. Isto pode trazer inquietação e atividade, pode trazer mudanças àquilo que está estagnado. O cão tenta avisá-lo do precipício que tem à frente, mas parece que ele nem percebe, por estar distraído a olhar a borboleta, livre. Simboliza o desligamento da matéria, uma história a ser vivida, continuar vivendo a vida sabendo que algo surpreendente poderá acontecer e aceitar esse fato despreocupadamente. O acaso irá resolver tudo. Pode ser interpretado como despreocupação, curiosidade de experimentar coisas novas ou até mesmo um pouco de confusão. Também pode significar que o Louco partiu em busca de algo que procurava, como um desejo que de repente extravasa, uma busca que foi sufocada durante muito tempo. Geralmente o conselho é seguir a espontaneidade e estar aberto para tudo aquilo que a vida tem a lhe oferecer. Deve-se aceitar que você é um aprendiz da vida. `;
+var card1 = `A carta do Mago dá início à caminhada espiritual. Indica sempre que algo novo está a começar. Tem uma mesa à sua frente, onde se podem ver quatro objectos simbólicos: uma taça, um punhal, um pergaminho e uma moeda, que pode ter a imagem do pentagrama. Parece que precisa de ajuda superior para tomar uma decisão e por isso ergue um pequeno bastão para o alto, captando energia e dirigindo-a para baixo, com a outra mão. É como se ele fosse o elo entre as energias divinas e o mundo material, mas precisa de ajuda porque ainda é um aprendiz. O punhal é o simbolo da luta, da energia sexual, do poder e da vitória. A moeda é o simbolo do mundo material, dos bens e do dinheiro. O pergaminho é a inteligência, o estudo, a espiritualidade. A taça, por sua vez, simboliza as emoções, o amor, o coração, a sensibilidade. O bastão é o simbolo da vontade e da sabedoria. Na caminhada espiritual, o Mago representa o ponto de partida e a necessidade de fazer uma canalização de vibrações superiores para poder realizar uma evolução.`;
+var card2 = `A papisa ou sacerdotisa, nos tarôs modernos simboliza o sabedoria, o conhecimento, a intuição, a iniciação. Nos clássicos fala daquilo que é escondido e maquiado, de assuntos secretos que não podem vir à tona para que a situação permaneça a mesma, ou que precisem vir à tona para que a situação possa evoluir. `;
+
+var texto_cartas = [card0,card1,card2]
 </script>
