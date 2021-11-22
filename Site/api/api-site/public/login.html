@@ -61,7 +61,7 @@
     function entrar() {
         
         // LEMBRA DE TIRAR ESSA MERDA AQUI ABAIXO DEPOIS IDIOTA!!!!!
-        window.location = "./void.html";
+        //window.location = "./void.html";
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -101,12 +101,17 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+
+                    sessionStorage.EMAIL_USUARIO = json.EMAIL_USUARIO;
+                    sessionStorage.NOME_USUARIO = json.NOME_USUARIO;
+                    sessionStorage.ID_USUARIO = json.ID_USUARIO;
+
+                    localStorage.setItem('EMAIL_USUARIO',json.EMAIL_USUARIO)
+                    localStorage.setItem('NOME_USUARIO',json.NOME_USUARIO)
+                    localStorage.setItem('ID_USUARIO',json.ID_USUARIO)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./void.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
