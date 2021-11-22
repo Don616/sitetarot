@@ -1,3 +1,5 @@
+
+
 var nome_arcano = ['O Louco','O Mago','A Sacerdotiza', 'A Imperatriz', 'O Imperador', 'O Hierofante', 'Os Amantes', 'O Carro','A Justiça','O Eremita','A Fortuna','A Força','O Enforcado',
 'A Morte','A Temperança','O Diabo','A Torre','A Estrela','A Lua','O Sol','O Julgamento','O Mundo','Ás de Paus', '2 de Paus','3 de Paus','4 de Paus','5 de Paus','6 de Paus','7 de Paus',
 '8 de Paus','9 de Paus','10 de Paus','Cavaleiro de Paus','Rainha de Paus','Príncipe de Paus','Princesa de Paus','Ás de Copas','2 de Copas','3 de Copas','4 de Copas','5 de Copas','6 de Copas','7 de Copas','8 de Copas','9 de Copas','10 de Copas',

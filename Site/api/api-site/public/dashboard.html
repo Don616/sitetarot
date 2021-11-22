@@ -71,8 +71,37 @@
 </html>
 <script>
 
+    
+    var NOME_USER = sessionStorage.NOME_USUARIO;
+    var ID_USER = sessionStorage.ID_USUARIO;
+
     function voltarPagina(){
         document.location = './void.html';
+    }
+
+    function pegarCartaQueMaisSaiu(ID_USER) {
+        
+
+        fetch(`/arcanos/dados/${ID_USER}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    mostrarCarta(resposta, id_user); //AQUI A RESPOSTA
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function mostrarCarta(resposta, id_user){
+        // monta a carta aqui man
     }
 
 </script>
