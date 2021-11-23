@@ -17,8 +17,14 @@ function salvar(user, sorteada) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function obterTotalCartas(user) {
+    instrucaoSql = `SELECT (SELECT COUNT(FK_ARCANOS) AS QT FROM DADOS WHERE FK_USUARIO = ${user}) AS 'quantidade';`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     pegarCartaQueMaisSaiu,
-    salvar
+    salvar,
+    obterTotalCartas,
 }

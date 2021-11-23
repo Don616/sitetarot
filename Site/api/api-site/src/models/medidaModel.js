@@ -27,15 +27,10 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 // MINHAS FUNCS
 
-function buscarDadosCartas(idAquario) {
-    instrucaoSql = ``;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarDadosCartas
+    
 }

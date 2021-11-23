@@ -11,4 +11,8 @@ router.post("/salvar", function (req, res) {
     arcanosController.salvar(req, res);
 })
 
+router.get("/totalcartas/:user", function (req, res) {
+    arcanosController.obterTotalCartas(req, res);
+});
+
 module.exports = router;

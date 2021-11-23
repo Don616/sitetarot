@@ -47,7 +47,7 @@
                 </div>
                 <div class="box_conteudo">
                     <div class="titulo"><h1>Cartas Tiradas</h1></div>
-                    <div class="corpo"></div>
+                    <div id="corpo_quantidade_cartas" class="corpo"></div>
                 </div>
                 <div class="box_conteudo">
                     <button onclick="voltarPagina()">Voltar</button>
@@ -73,23 +73,63 @@
 </html>
 <script>
 
+    var total_cartas = 0;
+
+    obterTotalCartas(ID_USER);
     
     var NOME_USER = localStorage.getItem('NOME_USUARIO')
     var ID_USER = localStorage.getItem('ID_USUARIO');
+    total_cartas = localStorage.getItem('quantidadeCartas');
+    
 
     nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
-
+    corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
+    
+    
     function voltarPagina(){
         document.location = './void.html';
     }
 
-    function pegarCartaQueMaisSaiu(ID_USER) {
+
+
+    function obterTotalCartas(user) {
+
+
+        fetch(`/arcanos/totalcartas/${user}`, { cache: 'no-store' }).then(function (response) {
+            
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    localStorage.setItem('TOTALCARTAS',JSON.stringify(resposta));
+                    QT_CARTAS = resposta.reverse(); 
+                    console.log('Teste de algo: ' + resposta[0].quantidade);
+                    resposta.reverse();
+                    localStorage.setItem('quantidadeCartas',resposta[0].quantidade)
+                    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    
+</script>
+<script>
+
+    
+function pegarCartaQueMaisSaiu(ID_USER) {
         
 
         fetch(`/arcanos/dados/${ID_USER}`, { cache: 'no-store' }).then(function (response) {
+            console.log(response);
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log('Teste de algo: ' + response.quantidade);
                     resposta.reverse();
 
                     mostrarCarta(resposta, id_user); //AQUI A RESPOSTA
@@ -102,10 +142,6 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    }
-
-    function mostrarCarta(resposta, id_user){
-        // monta a carta aqui man
     }
 
 </script>
