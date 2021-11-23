@@ -11,6 +11,14 @@ function pegarCartaQueMaisSaiu(ID_USER) {
     return database.executar(instrucaoSql);
 }
 
+function salvar(user, sorteada) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", user, sorteada);
+    var instrucao = `INSERT INTO DADOS (FK_USUARIO,FK_ARCANOS) VALUES (${user},${sorteada})`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    pegarCartaQueMaisSaiu
+    pegarCartaQueMaisSaiu,
+    salvar
 }

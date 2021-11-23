@@ -133,16 +133,19 @@ function arcanosMenores(){
 
 // Lógica para Começar a usar API
 
-function salvar(){
+function salvar() {
 
-    fetch("/usuarios/cadastrar", {
+    console.log('Enviando... ' + user)
+    console.log('Enviando... ' + rand)
+
+    fetch("/arcanos/salvar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            idUsuarioServer: user,
-            numeroArcanoServer: rand
+            userServer: user,
+            sorteadaServer: rand,
 
         })
     }).then(function (resposta) {
@@ -150,8 +153,8 @@ function salvar(){
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location = "./tiragem.html";
+            window.alert("Carta salva com sucesso");
+            window.location = "./dashboard.html";
             limparFormulario();
             //finalizarAguardar();
         } else {
@@ -163,7 +166,5 @@ function salvar(){
     });
 
     return false;
-
-    
 }
 

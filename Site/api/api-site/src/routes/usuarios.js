@@ -19,6 +19,10 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/salvar", function (req, res) {
+    usuarioController.salvar(req, res);
+});
+
 // minhas rotas
 
 router.post("/cadastrarCartas", function (req, res) {

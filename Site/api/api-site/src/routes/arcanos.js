@@ -7,6 +7,8 @@ router.get("/dados/:ID_USER", function (req, res) {
     arcanosController.pegarCartaQueMaisSaiu(req, res);
 });
 
-
+router.post("/salvar", function (req, res) {
+    arcanosController.salvar(req, res);
+})
 
 module.exports = router;
