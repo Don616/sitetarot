@@ -16,3 +16,4 @@ router.get("/totalcartas/:user", function (req, res) {
 });
 
 module.exports = router;
+

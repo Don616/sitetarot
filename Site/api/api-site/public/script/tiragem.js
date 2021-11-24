@@ -154,8 +154,8 @@ function salvar() {
 
         if (resposta.ok) {
             window.alert("Carta salva com sucesso");
-            window.location = "./dashboard.html";
-            limparFormulario();
+            //window.location = "./dashboard.html";
+            
             //finalizarAguardar();
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <title>DashBoard</title>
 </head>
-<body>
+<body onload=" setDadosDash()">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
     <header id="header">
         <div class="container">
@@ -90,20 +90,44 @@
 </html>
 <script>
 
-    var total_cartas = 0;
+    var total_cartas;
+    var id_user;
+    var total_cartas;
+
+    function setDadosDash(){
+
+        total_cartas = 0;
+        id_user = localStorage.getItem('ID_USUARIO');
+        total_cartas = localStorage.getItem('quantidadeCartas');
+        if(id_user != undefined){
+
+            var NOME_USER = localStorage.getItem('NOME_USUARIO')
+            obterTotalCartas(id_user);
+            nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
+            corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
+            palavras_chave.innerHTML = `${keywords}`;
+
+        } else {
+
+            alert('Erro no Login. Redirecionando...')
+            document.location = './login.html';
+
+        }
+
+    }
+    
+    
+    
     
 
-    obterTotalCartas(ID_USER);
     
-    var NOME_USER = localStorage.getItem('NOME_USUARIO')
-    var ID_USER = localStorage.getItem('ID_USUARIO');
+    
+
     total_cartas = localStorage.getItem('quantidadeCartas');
     keywords = localStorage.getItem('keywords');
     
 
-    nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
-    corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
-    palavras_chave.innerHTML = `${keywords}`;
+
     
     
     function voltarPagina(){
@@ -118,11 +142,11 @@
         fetch(`/arcanos/totalcartas/${user}`, { cache: 'no-store' }).then(function (response) {
             
             if (response.ok) {
+                
                 response.json().then(function (resposta) {
                     
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    localStorage.setItem('TOTALCARTAS',JSON.stringify(resposta));
-                    QT_CARTAS = resposta.reverse(); 
+                    localStorage.setItem('TOTALCARTAS',JSON.stringify(resposta)); 
                     console.log('Teste de algo: ' + resposta[0].quantidade);
                     resposta.reverse();
                     localStorage.setItem('quantidadeCartas',resposta[0].quantidade)
