@@ -5,6 +5,7 @@ html{
 .box1{
     display: flex;
     justify-content: space-between;
+    
 }
 .sidebar{
     width: 25%;
@@ -15,6 +16,7 @@ html{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border-right: solid #6a2a8f 5px;
 
 }
 .user{
@@ -24,7 +26,7 @@ html{
 }
 .box_conteudo{
 
-    width: 90%;
+    width: 70%;
     height: 20%;
     display: flex;
     align-items: center;
@@ -32,11 +34,12 @@ html{
     flex-direction: column;
 
 }
-.box_conteudo button{
-    height: 50%;
-    width: 50%;
+.box_conteudo .corpo{
+    border-top: solid #6a2a8f 4px;
+    padding: 10px;
     
 }
+
 
 /* CONTEUDO 1 */
 .conteudo1{
@@ -46,6 +49,8 @@ html{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    border-top: solid #6a2a8f 5px;
+    border-bottom: solid #6a2a8f 5px;
 }
 
 .grafico{
@@ -54,6 +59,8 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-left: solid black 5px;
+    border-right: solid #6a2a8f 5px;
 }
 /* CONTEUDO 2 */
 
@@ -64,6 +71,7 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    
 }
 .sidebar .titulo{
     width: 100%;
@@ -94,6 +102,7 @@ html{
     justify-content: center;
     align-items: center;
     color: white;
+    border-bottom: solid black 5px;
 }
 .conteudo1 .titulo h1{
     color: rgb(219, 188, 188);
@@ -119,5 +128,150 @@ html{
     color: white;
     text-transform: capitalize;
 }
+.sidebar .corpo {
+
+    color: rgb(219, 188, 188);
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
+
+}
+.sidebar button{
+
+    height: 50%;
+    width: 50%;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 2px 2px 2px black;
+    font-family: 'Zen Antique', serif;
+    box-shadow: 3px 3px 3px black;
+
+}
+.sidebar button:hover{
+    background-color: #6a2a8f;
+}
+.coluna img{
+    margin-bottom: 100px;
+    box-shadow: 5px 5px 5px black;
+}
+.modal{
+
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    margin: 0 auto;
+    margin-bottom: 120px;
+    margin-left: 300px;
+    width: 60%; 
+    height: 70%; 
+    overflow: auto; 
+    background: #300b46;
+    flex-direction: row;
+    justify-content: space-between;
+    border: black solid 4px;
+    
+
+}
+.modal .carta{
+
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #300b46;
+    border-right: black solid 4px;
+
+}
+
+.modal .carta img {
+
+    height: 90%;
+
+}
+.modal .conteudo2{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    
+
+}
+.modal .conteudo2 .cabeçalho {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    color: rgb(219, 188, 188);
 
 
+}
+.modal .conteudo2 .cabeçalho .titulo {
+
+    height: 100%;
+    width: 90%;
+    background-color: #300b46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.modal .conteudo2 .cabeçalho .fechar {
+
+    display: flex;
+    height: 100%;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
+
+}
+.modal .conteudo2 .cabeçalho .fechar:hover {
+    color: black;
+    
+}
+.modal .conteudo2 .corpomodal {
+
+    display: flex;
+    height: 90%;
+    width: 100%;
+    overflow: auto;    
+
+}
+.modal .conteudo2 .corpomodal p{
+
+    margin-left: 50px;
+    margin-right: 25px;
+    margin-top: 25px;
+    
+    color: rgb(219, 188, 188);
+    font-size: 20px;
+    
+    /*text-shadow: 2px 2px 2px black;*/
+
+}
+#grafico1{
+
+    margin-top: 50px;
+    height: 90px;
+    width: 60%;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+
+}

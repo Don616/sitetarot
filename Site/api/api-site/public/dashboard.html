@@ -17,6 +17,7 @@
     <title>DashBoard</title>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -36,14 +37,27 @@
     </header>
     <main>
         <div class="box1">
+            <div id="modal" class="modal">
+            
+                    <div class="carta"><img id="imgmodal" src="./imagens/Toth/1.png" alt=""></div>
+                    <div class="conteudo2">
+                        <div class="cabeçalho">
+                            <div class="titulo"><h1 id="nome_carta">Alguma coisa</h1></div>
+                            <div onclick="fecharModal()" id="fechar" class="fechar">X</div>
+                        </div>
+                        <div id="corpomodal" class="corpomodal">
+                            <p id="txt_cards"></p>
+                        </div>
+                    </div>
+                </div>
             <div class="sidebar">
 
                 <div class="user">
                     <h1 id="nome_do_user"></h1>
                 </div>
                 <div class="box_conteudo">
-                    <div class="titulo"><h1>Palavra-Chave</h1></div>
-                    <div class="corpo"></div>
+                    <div class="titulo"><h1>Palavras-Chave</h1></div>
+                    <div id="palavras_chave" class="corpo"></div>
                 </div>
                 <div class="box_conteudo">
                     <div class="titulo"><h1>Cartas Tiradas</h1></div>
@@ -57,11 +71,11 @@
             <div id="conteudo1" class="conteudo1">
                 <div class="coluna">
                     <div class="titulo"><h1>Mais Sorteada</h1></div>
-                    <div class="corpo"></div>
+                    <div id="div_carta_mais_sorteada" class="corpo"><img onclick="abrirModal()" id="carta_sorteada" src="./imagens/Toth/1.png" alt=""></div>
                 </div>
                 <div class="grafico">
                     <div class="titulo"><h1>Divisão por Naipe</h1></div>
-                    <div class="corpo"></div>
+                    <div id="grafico1" class="corpo"><canvas id="myChart"></canvas></div>
                 </div>
             </div>
 
@@ -69,21 +83,27 @@
         
         
         <script src="script/dashboard.js"></script>
+        <script src="script/modal.js"></script> 
+        <script src="script/grafico.js"></script>
+        
 </body>
 </html>
 <script>
 
     var total_cartas = 0;
+    
 
     obterTotalCartas(ID_USER);
     
     var NOME_USER = localStorage.getItem('NOME_USUARIO')
     var ID_USER = localStorage.getItem('ID_USUARIO');
     total_cartas = localStorage.getItem('quantidadeCartas');
+    keywords = localStorage.getItem('keywords');
     
 
     nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
     corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
+    palavras_chave.innerHTML = `${keywords}`;
     
     
     function voltarPagina(){
