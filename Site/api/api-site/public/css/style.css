@@ -218,3 +218,9 @@ li a:visited{
 li a:hover{
     color: #6a2a8f;
 }
+#header2{
+    display: none;
+}
+#header{
+    display: flex;
+}
