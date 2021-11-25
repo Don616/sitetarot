@@ -44,7 +44,7 @@
 
                 <li><a href="./tiragem.html">Nova Tiragem</a></li>
                 <li><a href="./dashboard.html">Dashboard</a></li>
-                <li><a href="#">Logoff</a></li>
+                <li><a onclick="deslogar()" href="#">Logoff</a></li>
                 <li><a href="./sobre.html">Todas as Cartas</a></li>
                 
                 
@@ -123,7 +123,7 @@
                 pegarCartaQueMaisSaiu(id_user);
                 var maior_carta = localStorage.getItem('maiorcarta');
 
-                obterKeywords()
+                obterKeywords(maior_carta)
                 var keywords = localStorage.getItem('keywords');
             
 
@@ -178,9 +178,9 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log('Teste de algo: ' + response.quantidade);
+                    console.log('Teste de algo: ' + response.maiorcarta);
                     resposta.reverse();
-                    localStorage.setItem('maiorcarta',resposta[0].quantidade)
+                    localStorage.setItem('maiorcarta',resposta[0].maiorcarta)
                     
                 });
             } else {
@@ -191,6 +191,28 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
+    }
+    function obterKeywords(maior_carta) {
+
+        fetch(`/arcanos/keywords/${user}`, { cache: 'no-store' }).then(function (response) {
+            
+            if (response.ok) {
+                
+                response.json().then(function (resposta) {
+                    
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log('Teste de algo: ' + response.keywords);
+                    resposta.reverse();
+                    localStorage.setItem('keywords',resposta[0].keywords)
+                    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
     

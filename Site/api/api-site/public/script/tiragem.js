@@ -1,11 +1,18 @@
+var user = localStorage.getItem('ID_USUARIO');
 
+if(user == undefined){
+    
+    alert('Erro no Login. Redirecionando...')
+    document.location = './login.html';
+    
+}
 
 var modalidade;
 var myIndex = 0;
 var x;
 var carta_escolhida;
 var rand;
-var user = sessionStorage.ID_USUARIO;
+
 
 function continuar(){
 

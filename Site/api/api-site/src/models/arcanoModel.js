@@ -18,9 +18,15 @@ function pegarCartaQueMaisSaiu(user) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function obterKeywords(carta) {
+    instrucaoSql = `SELECT (SELECT KEY1,KEY2,KEY3 FROM KEYWORDS WHERE FK_ARCANOS = ${carta};) AS 'keywords';`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     pegarCartaQueMaisSaiu,
     salvar,
     obterTotalCartas,
+    obterKeywords
 }

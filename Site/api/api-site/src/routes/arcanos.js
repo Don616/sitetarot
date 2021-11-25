@@ -19,5 +19,9 @@ router.get("/maiorcarta/:user", function (req, res) {
     arcanosController.pegarCartaQueMaisSaiu(req, res);
 });
 
+router.get("/keywords/:carta", function (req, res) {
+    arcanosController.obterKeywords(req, res);
+});
+
 module.exports = router;
 
