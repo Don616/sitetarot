@@ -113,6 +113,7 @@
     var cont_agua = 0;
     var cont_ar = 0;
     var cont_terra = 0;
+    var total_cartas = 0;
 
     var id_user = localStorage.getItem('ID_USUARIO');
 
@@ -126,7 +127,7 @@
             if(id_user != undefined){
     
                 obterTotalCartas(id_user);
-                var total_cartas = localStorage.getItem('quantidadeCartas');
+                total_cartas = localStorage.getItem('quantidadeCartas');
                 console.log(total_cartas)
 
                 pegarCartaQueMaisSaiu(id_user);
@@ -155,7 +156,7 @@
     
             }
 
-        }, 1000);
+        }, 100);
 
         
     }
@@ -244,13 +245,14 @@
                 response.json().then(function (resposta) {
                     
                     //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    
-                    for(let i = 0; i < JSON.stringify(resposta[0]).length;i++){
+                    console.log(total_cartas)
+                    for(let i = 0; i < total_cartas;i++){
 
                         
                         temp = JSON.stringify(resposta[i]['NAIPE_ARCANO']);
+
                         
-                        //console.log(temp)
+                        console.log(temp)
 
 
                         var ax_espirito = '"ESPÍRITO"';
@@ -261,19 +263,19 @@
 
 
                         if(temp == ax_espirito){
-                            //  console.log('CADASTREI ' + temp)
+                            console.log('CADASTREI ' + temp)
                             cont_espirito++;
                         } else if(temp == ax_FOGO){
-                            //console.log('CADASTREI ' + temp)
+                            console.log('CADASTREI ' + temp)
                             cont_fogo++;
                         } else if(temp == ax_ÁGUA){
-                            //console.log('CADASTREI ' + temp)
+                            console.log('CADASTREI ' + temp)
                             cont_agua++;
                         } else if(temp == ax_AR){
-                            //console.log('CADASTREI ' + temp)
+                            console.log('CADASTREI ' + temp)
                             cont_ar++;
                         } else if(temp == ax_TERRA){
-                            //console.log('CADASTREI ' + temp)
+                            console.log('CADASTREI ' + temp)
                             cont_terra++;
                         } else {
                             console.log('erro')
@@ -286,7 +288,7 @@
                     let dado = JSON.stringify(resposta[0]);
                     //console.log(dado)
                     resposta.reverse();
-                    //localStorage.setItem('naipe',resposta[0].naipe)
+                    
 
                     localStorage.setItem('naipe1',cont_espirito);
                     localStorage.setItem('naipe2',cont_fogo);
