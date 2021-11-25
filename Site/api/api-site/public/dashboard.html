@@ -89,7 +89,7 @@
             <div id="conteudo1" class="conteudo1">
                 <div class="coluna">
                     <div class="titulo"><h1>Mais Sorteada</h1></div>
-                    <div id="div_carta_mais_sorteada" class="corpo"><img onclick="abrirModal()" id="carta_sorteada" src="./imagens/Toth/1.png" alt=""></div>
+                    <div id="div_carta_mais_sorteada" class="corpo"><img onclick="abrirModal()" id="carta_sorteada" src="" alt=""></div>
                 </div>
                 <div class="grafico">
                     <div class="titulo"><h1>Divisão por Naipe</h1></div>
@@ -107,6 +107,8 @@
 </body>
 </html>
 <script>
+
+
 
     var id_user = localStorage.getItem('ID_USUARIO');
 
@@ -135,12 +137,11 @@
 
                 obterNaipe(id_user)
                 var lista_naipe = localStorage.getItem('naipe');
-                console.log(lista_naipe)
-            
 
+        
                 nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
                 corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
-                palavras_chave.innerHTML = `${keywords1},${keywords2},${keywords3}`;
+                palavras_chave.innerHTML = `${keywords1}<br>${keywords2}<br>${keywords3}`;
                 carta_sorteada.src = `./imagens/Toth/${maior_carta}.png`;
     
             } else {
@@ -185,12 +186,12 @@
         
 
         fetch(`/arcanos/maiorcarta/${id_user}`, { cache: 'no-store' }).then(function (response) {
-            console.log(response);
+            //console.log(response);
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     let dado = JSON.stringify(resposta[0]["FK_ARCANOS"]);
-                    console.log(JSON.stringify(resposta[0]["FK_ARCANOS"]))
+                    //console.log(JSON.stringify(resposta[0]["FK_ARCANOS"]))
                     resposta.reverse();
                     localStorage.setItem('maiorcarta',dado)
                     
@@ -239,9 +240,57 @@
                 response.json().then(function (resposta) {
                     
                     //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    //console.log('Teste de algo: ' + response.naipe);
+                    
+                    for(let i = 0; i < JSON.stringify(resposta[0]).length;i++){
+
+                        var temp = JSON.stringify(resposta[i]['NAIPE_ARCANO']);
+                        console.log(temp)
+
+                        var cont_espirito = 0;
+                        var cont_fogo = 0;
+                        var cont_agua = 0;
+                        var cont_ar = 0;
+                        var cont_terra = 0;
+
+                        var ax_espirito = `${'ESPÍRITO'}`;
+                        var ax_FOGO = `${'FOGO'}`;
+                        var ax_ÁGUA = `${'ÁGUA'}`;
+                        var ax_AR = `${'AR'}`;
+                        var ax_TERRA = `${'TERRA'}`;
+
+
+                        if(temp == ax_espirito){
+                            console.log('CADASTREI ' + temp)
+                            cont_espirito++;
+                        } else if(temp == ax_FOGO){
+                            console.log('CADASTREI ' + temp)
+                            cont_fogo++;
+                        } else if(temp == ax_ÁGUA){
+                            console.log('CADASTREI ' + temp)
+                            cont_agua++;
+                        } else if(temp == ax_AR){
+                            console.log('CADASTREI ' + temp)
+                            cont_ar++;
+                        } else if(temp == ax_TERRA){
+                            console.log('CADASTREI ' + temp)
+                            cont_terra++;
+                        } else {
+                            console.log('erro')
+                        }
+
+                    }
+
+                    let dado = JSON.stringify(resposta[0]);
+                    //console.log(dado)
                     resposta.reverse();
-                    localStorage.setItem('naipe',resposta[0].naipe)
+                    //localStorage.setItem('naipe',resposta[0].naipe)
+
+                    localStorage.setItem('naipe1',cont_espirito);
+                    localStorage.setItem('naipe2',cont_fogo);
+                    localStorage.setItem('naipe3',cont_agua);
+                    localStorage.setItem('naipe4',cont_ar);
+                    localStorage.setItem('naipe5',cont_terra);
+
                     
                 });
             } else {
