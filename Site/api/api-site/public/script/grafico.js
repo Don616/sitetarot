@@ -1,4 +1,11 @@
 
+
+var naipe1 = localStorage.getItem('naipe1');
+var naipe2 = localStorage.getItem('naipe2');
+var naipe3 = localStorage.getItem('naipe3');
+var naipe4 = localStorage.getItem('naipe4');
+var naipe5 = localStorage.getItem('naipe5');
+
 graficoPizza()
 
 function graficoPizza(){// Cria o gráfico de pizza
@@ -11,7 +18,7 @@ const myChart = new Chart(ctx, {
         labels: ['Paus', 'Copas', 'Espadas', 'Moedas', 'Espírito'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2],
+            data: [naipe2, naipe3, naipe4, naipe5, naipe1],
             backgroundColor: [
                 'red',
                 'aqua',

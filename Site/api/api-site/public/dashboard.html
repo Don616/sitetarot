@@ -108,7 +108,11 @@
 </html>
 <script>
 
-
+    var cont_espirito = 0;
+    var cont_fogo = 0;
+    var cont_agua = 0;
+    var cont_ar = 0;
+    var cont_terra = 0;
 
     var id_user = localStorage.getItem('ID_USUARIO');
 
@@ -243,42 +247,41 @@
                     
                     for(let i = 0; i < JSON.stringify(resposta[0]).length;i++){
 
-                        var temp = JSON.stringify(resposta[i]['NAIPE_ARCANO']);
-                        console.log(temp)
+                        
+                        temp = JSON.stringify(resposta[i]['NAIPE_ARCANO']);
+                        
+                        //console.log(temp)
 
-                        var cont_espirito = 0;
-                        var cont_fogo = 0;
-                        var cont_agua = 0;
-                        var cont_ar = 0;
-                        var cont_terra = 0;
 
-                        var ax_espirito = `${'ESPÍRITO'}`;
-                        var ax_FOGO = `${'FOGO'}`;
-                        var ax_ÁGUA = `${'ÁGUA'}`;
-                        var ax_AR = `${'AR'}`;
-                        var ax_TERRA = `${'TERRA'}`;
+                        var ax_espirito = '"ESPÍRITO"';
+                        var ax_FOGO = '"FOGO"';
+                        var ax_ÁGUA = '"ÁGUA"';
+                        var ax_AR = '"AR"';
+                        var ax_TERRA = '"TERRA"';
 
 
                         if(temp == ax_espirito){
-                            console.log('CADASTREI ' + temp)
+                            //  console.log('CADASTREI ' + temp)
                             cont_espirito++;
                         } else if(temp == ax_FOGO){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_fogo++;
                         } else if(temp == ax_ÁGUA){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_agua++;
                         } else if(temp == ax_AR){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_ar++;
                         } else if(temp == ax_TERRA){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_terra++;
                         } else {
                             console.log('erro')
                         }
 
                     }
+
+                    console.log(cont_espirito)
 
                     let dado = JSON.stringify(resposta[0]);
                     //console.log(dado)
