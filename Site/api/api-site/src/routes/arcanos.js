@@ -15,5 +15,9 @@ router.get("/totalcartas/:user", function (req, res) {
     arcanosController.obterTotalCartas(req, res);
 });
 
+router.get("/maiorcarta/:user", function (req, res) {
+    arcanosController.pegarCartaQueMaisSaiu(req, res);
+});
+
 module.exports = router;
 

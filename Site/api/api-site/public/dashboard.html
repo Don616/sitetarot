@@ -29,7 +29,7 @@
                 <li><a href="./quemsomos.html">Quem Somos</a></li>
                 <li><a href="./login.html">Login</a></li>
                 <li><a href="./cadastro.html">Cadastro</a></li>
-                <li><a href="./creditos.html">Créditos</a></li>
+                
                 
 
             </ul>
@@ -107,55 +107,48 @@
 </html>
 <script>
 
-    var total_cartas;
-    var id_user;
-    var total_cartas;
 
     function setDadosDash(){
 
-        total_cartas = 0;
-        id_user = localStorage.getItem('ID_USUARIO');
-        total_cartas = localStorage.getItem('quantidadeCartas');
-        if(id_user != undefined){
+        var id_user = localStorage.getItem('ID_USUARIO');
+        var NOME_USER = localStorage.getItem('NOME_USUARIO');
 
-            var NOME_USER = localStorage.getItem('NOME_USUARIO')
-            obterTotalCartas(id_user);
-            nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
-            corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
-            palavras_chave.innerHTML = `${keywords}`;
+        setTimeout(function () {
+
+            if(id_user != undefined){
+    
+                obterTotalCartas(id_user);
+                var total_cartas = localStorage.getItem('quantidadeCartas');
+
+                pegarCartaQueMaisSaiu(id_user);
+                var maior_carta = localStorage.getItem('maiorcarta');
+
+                obterKeywords()
+                var keywords = localStorage.getItem('keywords');
             
 
-        } else {
+                nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
+                corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
+                palavras_chave.innerHTML = `${keywords}`;
+                carta_sorteada.src = `./imagens/Toth/${maior_carta}.png`;
+    
+            } else {
+    
+                alert('Erro no Login. Redirecionando...')
+                document.location = './login.html';
+    
+            }
 
-            alert('Erro no Login. Redirecionando...')
-            document.location = './login.html';
+        }, 1000);
 
-        }
-
+        
     }
-    
-    
-    
-    
-
-    
-    
-
-    total_cartas = localStorage.getItem('quantidadeCartas');
-    keywords = localStorage.getItem('keywords');
-    
-
-
-    
     
     function voltarPagina(){
         document.location = './void.html';
     }
 
-
-
     function obterTotalCartas(user) {
-
 
         fetch(`/arcanos/totalcartas/${user}`, { cache: 'no-store' }).then(function (response) {
             
@@ -164,8 +157,6 @@
                 response.json().then(function (resposta) {
                     
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    localStorage.setItem('TOTALCARTAS',JSON.stringify(resposta)); 
-                    console.log('Teste de algo: ' + resposta[0].quantidade);
                     resposta.reverse();
                     localStorage.setItem('quantidadeCartas',resposta[0].quantidade)
                     
@@ -178,23 +169,19 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-    
-</script>
-<script>
 
-    
-function pegarCartaQueMaisSaiu(ID_USER) {
+    function pegarCartaQueMaisSaiu(id_user) {
         
 
-        fetch(`/arcanos/dados/${ID_USER}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/arcanos/maiorcarta/${id_user}`, { cache: 'no-store' }).then(function (response) {
             console.log(response);
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log('Teste de algo: ' + response.quantidade);
                     resposta.reverse();
-
-                    mostrarCarta(resposta, id_user); //AQUI A RESPOSTA
+                    localStorage.setItem('maiorcarta',resposta[0].quantidade)
+                    
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -206,4 +193,5 @@ function pegarCartaQueMaisSaiu(ID_USER) {
 
     }
 
+    
 </script>
