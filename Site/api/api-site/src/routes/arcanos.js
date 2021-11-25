@@ -23,5 +23,9 @@ router.get("/keywords/:carta", function (req, res) {
     arcanosController.obterKeywords(req, res);
 });
 
+router.get("/naipe/:user", function (req, res) {
+    arcanosController.obterNaipe(req, res);
+});
+
 module.exports = router;
 

@@ -1,7 +1,5 @@
 var database = require("../database/config");
 
-
-
 function salvar(user, sorteada) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", user, sorteada);
     var instrucao = `INSERT INTO DADOS (FK_USUARIO,FK_ARCANOS) VALUES (${user},${sorteada})`;
@@ -23,10 +21,16 @@ function obterKeywords(carta) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function obterNaipe(user) {
+    instrucaoSql = `SELECT (SELECT ARCANOS.NAIPE_ARCANO FROM DADOS JOIN ARCANOS ON NUMERO_ARCANO = FK_ARCANOS JOIN USUARIO ON ID_USUARIO = FK_USUARIO WHERE FK_USUARIO = ${user};) AS 'naipe';`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     pegarCartaQueMaisSaiu,
     salvar,
     obterTotalCartas,
-    obterKeywords
+    obterKeywords,
+    obterNaipe
 }

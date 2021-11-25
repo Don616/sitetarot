@@ -125,6 +125,9 @@
 
                 obterKeywords(maior_carta)
                 var keywords = localStorage.getItem('keywords');
+
+                obterNaipe(id_user)
+                var lista_naipe = localStorage.getItem('naipe');
             
 
                 nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
@@ -204,6 +207,28 @@
                     console.log('Teste de algo: ' + response.keywords);
                     resposta.reverse();
                     localStorage.setItem('keywords',resposta[0].keywords)
+                    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function obterNaipe(user) {
+
+        fetch(`/arcanos/naipe/${user}`, { cache: 'no-store' }).then(function (response) {
+            
+            if (response.ok) {
+                
+                response.json().then(function (resposta) {
+                    
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log('Teste de algo: ' + response.naipe);
+                    resposta.reverse();
+                    localStorage.setItem('naipe',resposta[0].naipe)
                     
                 });
             } else {

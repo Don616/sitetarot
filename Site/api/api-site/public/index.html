@@ -17,6 +17,7 @@
     <title>Página Inicial</title>
 </head>
 <body onload="gerarCarta()">
+    <div id="topo"></div>
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -55,7 +56,7 @@
         <div class="box2">
             <div class="container">
                 <div class="caixa">       
-                    <h1>Uma jornada para dentro de si!</h1>
+                    <h1 id="titulo_pagina"></h1>
                     <p>Embarque em uma jornada interna pelos arcanos do Tarot de Toth, aprendendo mais sobre seus símbolos e significados.</p>
                     <p>Cada desenho, cor, personagem e símbolo é um reflexo do que existe dentro de cada ser humano. Aprenda a ouvir o que as cartas tem a lhe dizer, e se torne mais sábio com suas repostas.</p>
                     <p>Não sabe o que é Tarot?</p>
@@ -128,7 +129,7 @@
                 <div class="box_footer" id="box_footer2">
                     <h2>Links Úteis</h2>
                     <ul>
-                        <li><a href="#header">Página Inicial</a></li>
+                        <li><a href="#topo">Página Inicial</a></li>
                         <li><a href="./quemsomos.html">Quem Somos</a></li>
                         <li><a href="./sobre.html">Sobre o Site</a></li>
                         <li><a href="https://github.com/Don616/sitetarot" target="_blank">Repositório Github</a></li>
@@ -137,7 +138,7 @@
                 <div class="box_footer" id="box_footer3">
                     <h2>Apoio</h2>
                     <div>
-                    <a href="http://www.digitalschool.com.br/faculdade/" target="_blank"><img src="http://www.digitalschool.com.br/assets/images/logos/logo_bandtec_ds_azul.png" alt="logo bandtec"></a>
+                    <a href="http://www.digitalschool.com.br/faculdade/" target="_blank"><img src="./imagens/bkp_02_moodle.png" alt="logo SPTech"></a>
                     </div>
                 </div>
         </footer>
@@ -228,6 +229,11 @@
 
 
     }
+
+    var texto_titulo = `Uma jornada para dentro de si!`.split('');
+    texto_titulo.forEach((l,i) =>{
+        setTimeout(() => titulo_pagina.innerHTML += l,100 *i)
+    });
 
 
 </script>
