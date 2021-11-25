@@ -75,6 +75,7 @@
                 <div class="box_conteudo">
                     <div class="titulo"><h1>Palavras-Chave</h1></div>
                     <div id="palavras_chave" class="corpo"></div>
+
                 </div>
                 <div class="box_conteudo">
                     <div class="titulo"><h1>Cartas Tiradas</h1></div>
@@ -127,8 +128,10 @@
                 console.log(maior_carta)
 
                 obterKeywords(maior_carta)
-                var keywords = localStorage.getItem('keywords');
-                console.log(keywords)
+                var keywords1 = localStorage.getItem('keywords1');
+                var keywords2 = localStorage.getItem('keywords2');
+                var keywords3 = localStorage.getItem('keywords3');
+                
 
                 obterNaipe(id_user)
                 var lista_naipe = localStorage.getItem('naipe');
@@ -137,7 +140,7 @@
 
                 nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
                 corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
-                palavras_chave.innerHTML = `${keywords}`;
+                palavras_chave.innerHTML = `${keywords1},${keywords2},${keywords3}`;
                 carta_sorteada.src = `./imagens/Toth/${maior_carta}.png`;
     
             } else {
@@ -186,9 +189,10 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log('Teste de algo: ' + response.maiorcarta);
+                    let dado = JSON.stringify(resposta[0]["FK_ARCANOS"]);
+                    console.log(JSON.stringify(resposta[0]["FK_ARCANOS"]))
                     resposta.reverse();
-                    localStorage.setItem('maiorcarta',resposta[0].maiorcarta)
+                    localStorage.setItem('maiorcarta',dado)
                     
                 });
             } else {
@@ -208,10 +212,14 @@
                 
                 response.json().then(function (resposta) {
                     
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log('Teste de algo: ' + response.keywords);
+                    let dado1 = JSON.stringify(resposta[0]["KEY1"]);
+                    let dado2 = JSON.stringify(resposta[0]["KEY2"]);
+                    let dado3 = JSON.stringify(resposta[0]["KEY3"]);
+                    
                     resposta.reverse();
-                    localStorage.setItem('keywords',resposta[0].keywords)
+                    localStorage.setItem('keywords1',dado1)
+                    localStorage.setItem('keywords2',dado2)
+                    localStorage.setItem('keywords3',dado3)
                     
                 });
             } else {
@@ -230,8 +238,8 @@
                 
                 response.json().then(function (resposta) {
                     
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log('Teste de algo: ' + response.naipe);
+                    //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //console.log('Teste de algo: ' + response.naipe);
                     resposta.reverse();
                     localStorage.setItem('naipe',resposta[0].naipe)
                     

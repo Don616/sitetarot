@@ -275,3 +275,12 @@ html{
     flex-wrap: wrap;
 
 }
+#palavras_chave{
+
+    color: rgb(219, 188, 188);
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px black;
+
+}
