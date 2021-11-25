@@ -107,10 +107,11 @@
 </html>
 <script>
 
+    var id_user = localStorage.getItem('ID_USUARIO');
 
     function setDadosDash(){
 
-        var id_user = localStorage.getItem('ID_USUARIO');
+        
         var NOME_USER = localStorage.getItem('NOME_USUARIO');
 
         setTimeout(function () {
@@ -119,15 +120,19 @@
     
                 obterTotalCartas(id_user);
                 var total_cartas = localStorage.getItem('quantidadeCartas');
+                console.log(total_cartas)
 
                 pegarCartaQueMaisSaiu(id_user);
                 var maior_carta = localStorage.getItem('maiorcarta');
+                console.log(maior_carta)
 
                 obterKeywords(maior_carta)
                 var keywords = localStorage.getItem('keywords');
+                console.log(keywords)
 
                 obterNaipe(id_user)
                 var lista_naipe = localStorage.getItem('naipe');
+                console.log(lista_naipe)
             
 
                 nome_do_user.innerHTML = `Olá, ${NOME_USER}!`;
@@ -159,7 +164,7 @@
                 
                 response.json().then(function (resposta) {
                     
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     localStorage.setItem('quantidadeCartas',resposta[0].quantidade)
                     
@@ -197,7 +202,7 @@
     }
     function obterKeywords(maior_carta) {
 
-        fetch(`/arcanos/keywords/${user}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/arcanos/keywords/${maior_carta}`, { cache: 'no-store' }).then(function (response) {
             
             if (response.ok) {
                 
@@ -217,9 +222,9 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-    function obterNaipe(user) {
+    function obterNaipe(id_user) {
 
-        fetch(`/arcanos/naipe/${user}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/arcanos/naipe/${id_user}`, { cache: 'no-store' }).then(function (response) {
             
             if (response.ok) {
                 

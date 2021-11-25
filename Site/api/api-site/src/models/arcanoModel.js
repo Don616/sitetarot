@@ -12,18 +12,21 @@ function obterTotalCartas(user) {
     return database.executar(instrucaoSql);
 }
 function pegarCartaQueMaisSaiu(user) {
-    instrucaoSql = `SELECT (SELECT FK_ARCANOS FROM DADOS WHERE FK_USUARIO = ${user} GROUP BY FK_ARCANOS ORDER BY COUNT(FK_ARCANOS) DESC LIMIT 1;) AS 'maiorcarta';`;
+    instrucaoSql = `SELECT FK_ARCANOS FROM DADOS WHERE FK_USUARIO = ${user} GROUP BY FK_ARCANOS ORDER BY COUNT(FK_ARCANOS) DESC LIMIT 1;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log('Pegar carta chegou na Model')
     return database.executar(instrucaoSql);
 }
 function obterKeywords(carta) {
-    instrucaoSql = `SELECT (SELECT KEY1,KEY2,KEY3 FROM KEYWORDS WHERE FK_ARCANOS = ${carta};) AS 'keywords';`;
+    instrucaoSql = `SELECT KEY1,KEY2,KEY3 FROM KEYWORDS WHERE FK_ARCANOS = ${carta};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log('Obter Keyword chegou na Model')
     return database.executar(instrucaoSql);
 }
 function obterNaipe(user) {
-    instrucaoSql = `SELECT (SELECT ARCANOS.NAIPE_ARCANO FROM DADOS JOIN ARCANOS ON NUMERO_ARCANO = FK_ARCANOS JOIN USUARIO ON ID_USUARIO = FK_USUARIO WHERE FK_USUARIO = ${user};) AS 'naipe';`;
+    instrucaoSql = `SELECT ARCANOS.NAIPE_ARCANO FROM DADOS JOIN ARCANOS ON NUMERO_ARCANO = FK_ARCANOS JOIN USUARIO ON ID_USUARIO = FK_USUARIO WHERE FK_USUARIO = ${user};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log('Obeter Naipe chegou na Model')
     return database.executar(instrucaoSql);
 }
 
