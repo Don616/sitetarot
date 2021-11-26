@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <title>DashBoard</title>
 </head>
-<body onload=" setDadosDash()">
+<body onload="setDadosDash()">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
     <header id="header">
         <div class="container">
@@ -44,11 +44,9 @@
 
                 <li><a href="./tiragem.html">Nova Tiragem</a></li>
                 <li><a href="./dashboard.html">Dashboard</a></li>
-                <li><a onclick="deslogar()" href="#">Logoff</a></li>
                 <li><a href="./sobre.html">Todas as Cartas</a></li>
+                <li><a id="user_logado" onclick="deslogar()" href="#">Sair</a></li>
                 
-                
-
             </ul>
         </div>
     </header>
@@ -109,7 +107,8 @@
 <script>
 setTimeout(function () {
     setDadosDash()
-}, 1500);
+    
+}, 1000);
     var cont_espirito = 0;
     var cont_fogo = 0;
     var cont_agua = 0;
@@ -130,11 +129,11 @@ setTimeout(function () {
     
                 obterTotalCartas(id_user);
                 total_cartas = localStorage.getItem('quantidadeCartas');
-                console.log(total_cartas)
+                //console.log(total_cartas)
 
                 pegarCartaQueMaisSaiu(id_user);
                 var maior_carta = localStorage.getItem('maiorcarta');
-                console.log(maior_carta)
+                //console.log(maior_carta)
 
                 obterKeywords(maior_carta)
                 var keywords1 = localStorage.getItem('keywords1');
@@ -157,9 +156,6 @@ setTimeout(function () {
                 document.location = './login.html';
     
             }
-
-        
-
         
     }
     
@@ -247,14 +243,14 @@ setTimeout(function () {
                 response.json().then(function (resposta) {
                     
                     //console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(total_cartas)
+                    //console.log(total_cartas)
                     for(let i = 0; i < total_cartas;i++){
 
                         
                         temp = JSON.stringify(resposta[i]['NAIPE_ARCANO']);
 
                         
-                        console.log(temp)
+                        //console.log(temp)
 
 
                         var ax_espirito = '"ESPÍRITO"';
@@ -265,27 +261,27 @@ setTimeout(function () {
 
 
                         if(temp == ax_espirito){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_espirito++;
                         } else if(temp == ax_FOGO){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_fogo++;
                         } else if(temp == ax_ÁGUA){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_agua++;
                         } else if(temp == ax_AR){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_ar++;
                         } else if(temp == ax_TERRA){
-                            console.log('CADASTREI ' + temp)
+                            //console.log('CADASTREI ' + temp)
                             cont_terra++;
                         } else {
-                            console.log('erro')
+                            //console.log('erro')
                         }
 
                     }
 
-                    console.log(cont_espirito)
+                    //console.log(cont_espirito)
 
                     let dado = JSON.stringify(resposta[0]);
                     //console.log(dado)
@@ -298,7 +294,6 @@ setTimeout(function () {
                     localStorage.setItem('naipe4',cont_ar);
                     localStorage.setItem('naipe5',cont_terra);
 
-                    
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
