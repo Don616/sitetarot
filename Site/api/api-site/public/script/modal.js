@@ -7,17 +7,32 @@ var nome_arcano = ['O Louco','O Mago','A Sacerdotiza', 'A Imperatriz', 'O Impera
 'Cavaleiro de Espadas','Rainha de Espadas','Príncipe de Espadas','Princesa de Espadas','Ás de Moedas','2 de Moedas','3 de Moedas','4 de Moedas','5 de Moedas','6 de Moedas','7 de Moedas','8 de Moedas','9 de Moedas','10 de Moedas',
 'Cavaleiro de Moedas','Rainha de Moedas','Príncipe de Moedas','Princesa de Moedas'];
 
+var maior_carta = localStorage.getItem('maiorcarta');
+
 var id_carta = undefined;
 document.body.onclick = function(){
     console.log(event.target.id)
 
     if(event.target.tagName == 'IMG' && event.target.id != 'imgmodal'){
-        id_carta = event.target.id;
-        imgmodal.src = `./imagens/Toth/${id_carta}.png`
-        nome_carta.innerHTML = `${nome_arcano[id_carta]}`;
-        txt_cards.innerHTML = `${texto_cartas[id_carta]}`;
-    } 
 
+	if(event.target.id == 'carta_sorteada'){
+		console.log('aqui')
+		id_carta = maior_carta;
+
+		
+        	imgmodal.src = `./imagens/Toth/${id_carta}.png`
+        	nome_carta.innerHTML = `${nome_arcano[id_carta]}`;
+        	txt_cards.innerHTML = `${texto_cartas[id_carta]}`;
+		
+   	} else {
+
+        	id_carta = event.target.id;
+        	imgmodal.src = `./imagens/Toth/${id_carta}.png`
+        	nome_carta.innerHTML = `${nome_arcano[id_carta]}`;
+        	txt_cards.innerHTML = `${texto_cartas[id_carta]}`;
+
+    	} 
+    }
 }
 
 function abrirModal(){modal.style.display = `flex`;}

@@ -24,26 +24,25 @@ Criar uma página online onde o usuário cadastrado é capaz de simular uma tira
 
 > Escopo
 
- - [ ] Criação da Home Page;
- - [ ] Criação do Quem Somos;
- - [ ] Criação do Sobre Mim;
- - [ ] Criação do Créditos;
- - [ ] Criação da DashBoard;
+ - [x] Criação da Home Page;
+ - [x] Criação do Quem Somos;
+ - [x] Criação do Sobre Mim;
+ - [x] Criação da DashBoard;
  - [x] Criação da  Login / Cadastro;
  - [x] Criação do Banco de Dados (Modelagem);
  - [x] Criação do Banco de Dados (Script);
  - [x] Escrita da Documentação;
  - [x] Kanbam Implementado;
  - [x] API integrada;
- - [ ] Slide com ligação com socioemocional;
+ - [x] Slide com ligação com socioemocional;
  
 > Marcos do Projeto
  - [x] (07/11) - Finalização da Documentação e Backlog;
  - [x] (10/11) - Finalização da Estrutura básica (HTML) do site;
  - [x] (13/11) - Finalização do CSS do site + Conteúdo;
  - [x] (15/11) - Finalização da parte Lógica (JS) do site;
- - [ ] (18/11) - Finalização da Dashboard em funcionamento + Slide;
- - [ ] (21/11) - Finalização da API para login + Banco de dados;
+ - [x] (18/11) - Finalização da Dashboard em funcionamento + Slide;
+ - [x] (21/11) - Finalização da API para login + Banco de dados;
 
 > Restrições
 

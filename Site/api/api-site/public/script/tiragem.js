@@ -161,7 +161,7 @@ function salvar() {
 
         if (resposta.ok) {
             window.alert("Carta salva com sucesso");
-            //window.location = "./dashboard.html";
+            window.location = "./tiragem.html";
             
             //finalizarAguardar();
         } else {

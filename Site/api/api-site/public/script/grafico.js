@@ -12,12 +12,12 @@ function graficoPizza(){// Cria o gráfico de pizza
 
   
 const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
+var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
         labels: ['Paus', 'Copas', 'Espadas', 'Moedas', 'Espírito'],
         datasets: [{
-            label: '# of Votes',
+            //label: '',
             data: [naipe2, naipe3, naipe4, naipe5, naipe1],
             backgroundColor: [
                 'red',
@@ -35,14 +35,23 @@ const myChart = new Chart(ctx, {
                 'purple'
                 
             ],
-            borderWidth: 1
+            borderWidth: 3
         }]
     },
     options: {
+        responsive: true,
+
         scales: {
-            y: {
-                beginAtZero: true
-            }
+            x:{grid:{tickColor:'blue'}, ticks:{color:'grey',fontSize:5}},
+            y:{}
+        },
+
+        plugins:{
+
+            legend:{labels:{font:{size: 16,weight:'bolder'},color:'white'}},
+            labels:{size: 15},
+	    title:{color:'black'}
+
         }
     }
 });
