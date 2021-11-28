@@ -15,8 +15,8 @@
 > Instalação
 
 - Dentro da pasta 'api-site' instale as dependências com o comando `npm install` (requer o NodeJS instalado na máquina);
-- Execute o script MYSQL completo que está em </sitetarot/Site/api/api-site/src/database/sql.sql> (requer MYSQL instalado na máquina);
-- Nas conexões do Banco de dados em </sitetarot/Site/api/api-site/src/database/config.js> coloque seu user do MYSQL (linha 23) e senha (linha 25);
+- Execute o script MYSQL completo que está em /sitetarot/Site/api/api-site/src/database/sql.sql (requer MYSQL instalado na máquina);
+- Nas conexões do Banco de dados em /sitetarot/Site/api/api-site/src/database/config.js coloque seu user do MYSQL (linha 23) e senha (linha 25);
 - Dentro da pasta 'api-site' execute o comando `npm start`. Se tudo der certo o site estará disponível em <http://localhost:3333>
 - Caso ocorra algum erro entre em contato.
 
