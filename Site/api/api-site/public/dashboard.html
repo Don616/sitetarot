@@ -72,7 +72,7 @@
                 </div>
                 <div class="box_conteudo">
                     <div class="titulo"><h1>Palavras-Chave</h1></div>
-                    <div id="palavras_chave" class="corpo"></div>
+                    <div id="palavras_chave" class="corpo">@</div>
 
                 </div>
                 <div class="box_conteudo">
@@ -80,7 +80,7 @@
                     <div id="corpo_quantidade_cartas" class="corpo"></div>
                 </div>
                 <div class="box_conteudo">
-                    <button onclick="voltarPagina()">Voltar</button>
+                    <button onclick="atualizar()">Atualizar</button>
                 </div>
 
             </div>
@@ -105,10 +105,14 @@
 </body>
 </html>
 <script>
-setTimeout(function () {
-    setDadosDash()
-    
-}, 1000);
+
+
+
+
+
+
+
+
     var cont_espirito = 0;
     var cont_fogo = 0;
     var cont_agua = 0;
@@ -116,7 +120,20 @@ setTimeout(function () {
     var cont_terra = 0;
     var total_cartas = 0;
 
+
+
     var id_user = localStorage.getItem('ID_USUARIO');
+
+	setTimeout(function () {
+    		setDadosDash()
+
+	    if(total_cartas == 0){
+		alert("Sorteie uma carta primeiro para continuar!")
+		document.location = './tiragem.html';
+    	    }
+	    
+    
+	}, 500);
 
     function setDadosDash(){
 
@@ -139,7 +156,9 @@ setTimeout(function () {
                 var keywords1 = localStorage.getItem('keywords1');
                 var keywords2 = localStorage.getItem('keywords2');
                 var keywords3 = localStorage.getItem('keywords3');
-                
+
+		
+
 
                 obterNaipe(id_user)
                 var lista_naipe = localStorage.getItem('naipe');
@@ -149,6 +168,8 @@ setTimeout(function () {
                 corpo_quantidade_cartas.innerHTML = `${total_cartas}`;
                 palavras_chave.innerHTML = `${keywords1}<br>${keywords2}<br>${keywords3}`;
                 carta_sorteada.src = `./imagens/Toth/${maior_carta}.png`;
+
+		
     
             } else {
     
@@ -159,8 +180,8 @@ setTimeout(function () {
         
     }
     
-    function voltarPagina(){
-        document.location = './void.html';
+    function atualizar(){
+        document.location = './dashboard.html';
     }
 
     function obterTotalCartas(user) {
