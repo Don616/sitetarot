@@ -23,5 +23,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: ls -la
-
+    - run: cd ./Site/api/api-site
+    - run: npm install
  
