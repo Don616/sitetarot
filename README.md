@@ -1,4 +1,4 @@
-# Projeto: Site Tarot
+# Projeto: Site Tarot ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Don616/sitetarot/Site%20Tarot?style=plastic)
 
 ## Instalação
 
