@@ -1,4 +1,4 @@
-# Projeto: Site Tarot
+# Projeto: Site Tarot 1.0
 
 ## Instalação
 
