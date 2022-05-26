@@ -1,7 +1,5 @@
 FROM node:latest
 
-RUN apt-get update 
-
 WORKDIR /app
 
 COPY . .

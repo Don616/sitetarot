@@ -19,7 +19,7 @@ var sqlServerConfig = {
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
-    host: "localhost",
+    host: "mysql-tarot",
     user: "root", //faculdade: root, casa: don
     database: "SITETAROT",
     password: "root", //faculdade: bandtec, casa: 749

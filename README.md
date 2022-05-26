@@ -1,24 +1,26 @@
 # Projeto: Site Tarot ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Don616/sitetarot/Site%20Tarot?style=plastic)
 
-## Instalação
+
+## Instalação com Docker:
 
 > Requisitos
 
-- Banco de dados MYSQL;
-- NodeJS;
-- Navegador Chrome (preferencialmente);
+- Docker;
 
 > Clonagem do Repositório
 
 - Dê o comando `git clone https://github.com/Don616/sitetarot` em um terminal de sua preferência;
 
-> Instalação
+> Comandos
 
-- Dentro da pasta 'api-site' instale as dependências com o comando `npm install` (requer o NodeJS instalado na máquina);
-- Execute o script MYSQL completo que está em /sitetarot/Site/api/api-site/src/database/sql.sql (requer MYSQL instalado na máquina);
-- Nas conexões do Banco de dados em /sitetarot/Site/api/api-site/src/database/config.js coloque seu user do MYSQL (linha 23) e senha (linha 25);
-- Dentro da pasta 'api-site' execute o comando `npm start`. Se tudo der certo o site estará disponível em <http://localhost:3333>
-- Caso ocorra algum erro entre em contato.
+- Dê os comandos abaixo na pasta raiz do repositório (./sitetarot) e execute os comandos abaixo, seja no powershell (windows) ou no terminal (linux):
+
+1. Para criar um network: `docker network create rede-tarot`
+2. Para fazer o build do mysql: `docker build -t mysql-tarot-image ./Site/api/api-site/src/database/.`
+3. Para rodar o container mysql: `docker run -d -p 3306:3306 --net=rede-tarot --name mysql-tarot mysql-tarot-image`
+4. Para iniciar o container mysql (caso não tenha iniciado): `docker start mysql-tarot`
+5. Para fazer o build da aplicação do site: `docker build -t site-tarot-image ./Site/api/api-site/.`
+6. Para iniciar a aplicação do site: `docker run -d -p 3000:3000 --net=rede-tarot --link=mysql-tarot --name site-tarot site-tarot-image`
 
 ---
 ## Documentação do Projeto Pessoal - V1.0
