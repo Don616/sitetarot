@@ -36,6 +36,8 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
+
+
     public Long getId() {
         return id;
     }
@@ -79,6 +81,8 @@ public class Usuario {
     public String getDataNascimento() {
         return dataNascimento;
     }
+
+
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;

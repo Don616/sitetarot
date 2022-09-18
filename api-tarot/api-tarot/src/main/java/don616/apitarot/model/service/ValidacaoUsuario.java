@@ -10,6 +10,9 @@ public class ValidacaoUsuario {
 
     public String validar(CadastrarUsuarioForm form){
 
+        if(!validarNome(form)){
+            return "Nome Inválido";
+        }
         if(!validaEmail(form)){
             return "Email Inválido";
         }
@@ -20,7 +23,14 @@ public class ValidacaoUsuario {
             return "Gênero Inválido";
         }
 
+
         return null;
+    }
+
+    public Boolean validarNome(CadastrarUsuarioForm form){
+
+        String nome = form.getNome();
+        return !nome.isBlank() && nome.length() > 2;
     }
 
     public Boolean validarGenero(CadastrarUsuarioForm form){
@@ -41,5 +51,7 @@ public class ValidacaoUsuario {
         String senha = form.getSenha();
         return senha.length()>=8;
     }
+
+
 
 }

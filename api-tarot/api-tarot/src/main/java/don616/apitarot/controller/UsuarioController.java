@@ -1,6 +1,5 @@
 package don616.apitarot.controller;
 
-import don616.apitarot.controller.dto.UsuarioDTO;
 import don616.apitarot.controller.form.CadastrarUsuarioForm;
 import don616.apitarot.model.entity.Usuario;
 import don616.apitarot.model.service.UsuarioService;
@@ -30,10 +29,19 @@ public class UsuarioController {
 
     @GetMapping
     public Page<Usuario> listarUsuarios(Pageable pageable,
-                                        @RequestParam Map<String,String> param){
+                                        @RequestParam(required = false) Map<String,String> param){
+        return usuarioService.listarUsuarios(pageable,param);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletarUsuario(@PathVariable Long id){
+        return usuarioService.deletarUsuario(id);
+    }
 
-        return usuarioService.listarUsuarios(pageable);
+    @PutMapping("/{id}")
+    public ResponseEntity<String> atualizarUsuario(@PathVariable Long id,
+                                                   @RequestBody CadastrarUsuarioForm form){
+        return usuarioService.atualizarUsuario(id,form);
     }
 
 

@@ -5,7 +5,6 @@ import don616.apitarot.model.entity.Usuario;
 
 public class CadastrarUsuarioForm {
 
-
     private String nome;
     private String email;
     private String senha;
