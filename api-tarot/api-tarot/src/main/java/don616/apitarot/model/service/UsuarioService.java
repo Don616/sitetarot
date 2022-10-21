@@ -6,7 +6,6 @@ import don616.apitarot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,23 +20,16 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public ResponseEntity<String> cadastrarUsuario(CadastrarUsuarioForm form){
-
-        String usuarioInvalido = new ValidacaoUsuario().validar(form);
-
-        if(usuarioInvalido==null) {
+    public ResponseEntity<?> cadastrarUsuario(CadastrarUsuarioForm form){
 
             if (usuarioRepository.findByEmail(form.getEmail()).isEmpty()) {
                 Usuario usuario = form.converter();
                 usuarioRepository.save(usuario);
-                return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com sucesso");
+                return ResponseEntity.status(201).body("Usuario cadastrado com sucesso");
             } else {
-                return ResponseEntity.status(HttpStatus.CONFLICT).body("Email já existe na base de dados");
+                return ResponseEntity.status(409).body("Email já existe na base de dados");
             }
 
-        } else {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(usuarioInvalido);
-        }
     }
 
     public Optional<Usuario> buscarUsuarioPorId(Long id){
@@ -68,10 +60,6 @@ public class UsuarioService {
 
     public ResponseEntity<String> atualizarUsuario(Long id, CadastrarUsuarioForm form) {
 
-        String usuarioInvalido = new ValidacaoUsuario().validar(form);
-
-        if(usuarioInvalido==null) {
-
             Optional<Usuario> usuario = buscarUsuarioPorId(id);
 
             if (usuario.isPresent()) {
@@ -100,9 +88,16 @@ public class UsuarioService {
             } else {
                 return ResponseEntity.status(404).body("Usuario não encontrado");
             }
+
+    }
+
+    public ResponseEntity<?> getUsuarioPorId(Long id) {
+
+        Optional<Usuario> usuario = buscarUsuarioPorId(id);
+
+        if(usuario.isPresent()){
+            return ResponseEntity.status(200).body(usuario);
         }
-        else {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(usuarioInvalido);
-        }
+        return ResponseEntity.status(404).body("Usuario não encontrado");
     }
 }

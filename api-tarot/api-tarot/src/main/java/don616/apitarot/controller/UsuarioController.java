@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
@@ -23,7 +24,7 @@ public class UsuarioController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<String> cadastrarUsuario(@RequestBody CadastrarUsuarioForm form){
+    public ResponseEntity<?> cadastrarUsuario(@RequestBody @Valid CadastrarUsuarioForm form){
         return usuarioService.cadastrarUsuario(form);
     }
 
@@ -33,18 +34,21 @@ public class UsuarioController {
         return usuarioService.listarUsuarios(pageable,param);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUsuarioPorId(@PathVariable Long id){
+        return usuarioService.getUsuarioPorId(id);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletarUsuario(@PathVariable Long id){
+    public ResponseEntity<?> deletarUsuario(@PathVariable Long id){
         return usuarioService.deletarUsuario(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarUsuario(@PathVariable Long id,
-                                                   @RequestBody CadastrarUsuarioForm form){
+    public ResponseEntity<?> atualizarUsuario(@PathVariable Long id,
+                                                   @RequestBody @Valid CadastrarUsuarioForm form){
         return usuarioService.atualizarUsuario(id,form);
     }
-
-
 
 
 }

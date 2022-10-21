@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import javax.validation.constraints.Email;
 
 
 @Entity
@@ -18,15 +18,14 @@ public class Usuario {
     @NotNull
     private String nome;
     @NotNull
+    @Email
     private String email;
     @NotNull
     private String senha;
     private Character genero;
     private String dataNascimento;
 
-    public Usuario(){
-
-    }
+    public Usuario(){}
 
     public Usuario(String nome, String email, String senha, Character genero, String dataNascimento) {
         this.nome = nome;
