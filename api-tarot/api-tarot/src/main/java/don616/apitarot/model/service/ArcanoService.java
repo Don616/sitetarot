@@ -6,13 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ArcanoService {
     
     @Autowired
     ArcanoRepository arcanoRepository;
+
+    @Autowired
+    BuscaPorParametroService buscaPorParametroService;
 
     public ResponseEntity<?> getArcanos() {
         List<Arcano> listaArcanos = arcanoRepository.findAll();
@@ -28,5 +33,9 @@ public class ArcanoService {
             return ResponseEntity.status(200).body(arcano);
         }
         return ResponseEntity.status(404).body("Arcano não encontrado");
+    }
+
+    public ResponseEntity<?> getArcanosParam(HashMap<String, String> param) {
+        return buscaPorParametroService.buscaParam(param);
     }
 }
