@@ -22,7 +22,13 @@ public class Tiragem {
 
     public Tiragem(){}
 
-    public Tiragem(String tiragemId, EnumEstiloTiragem estiloTiragem, String dataHora, Integer posicao, Boolean isReversa, Usuario usuario, Arcano arcano) {
+    public Tiragem(String tiragemId,
+                   EnumEstiloTiragem estiloTiragem,
+                   String dataHora,
+                   Integer posicao,
+                   Boolean isReversa,
+                   Usuario usuario,
+                   Arcano arcano) {
         this.tiragemId = tiragemId;
         this.estiloTiragem = estiloTiragem;
         this.dataHora = dataHora;
@@ -32,7 +38,12 @@ public class Tiragem {
         this.arcano = arcano;
     }
 
-    public Tiragem(Integer id, String tiragemId, EnumEstiloTiragem estiloTiragem, String dataHora, Usuario usuario, Arcano arcano) {
+    public Tiragem(Integer id,
+                   String tiragemId,
+                   EnumEstiloTiragem estiloTiragem,
+                   String dataHora,
+                   Usuario usuario,
+                   Arcano arcano) {
         this.id = id;
         this.tiragemId = tiragemId;
         this.estiloTiragem = estiloTiragem;

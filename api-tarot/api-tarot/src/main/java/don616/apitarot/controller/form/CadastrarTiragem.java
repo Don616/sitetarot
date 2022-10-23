@@ -17,6 +17,15 @@ public class CadastrarTiragem {
     private Usuario usuario;
     private Arcano arcano;
 
+    public CadastrarTiragem(){};
+
+    public CadastrarTiragem(EnumEstiloTiragem estiloTiragem, Boolean isReversa, Usuario usuario, Arcano arcano) {
+        this.estiloTiragem = estiloTiragem;
+        this.isReversa = isReversa;
+        this.usuario = usuario;
+        this.arcano = arcano;
+    }
+
     public Boolean getReversa() {
         return isReversa;
     }
