@@ -20,10 +20,7 @@ public class BuscaPorParametroService {
 
         Arcano arcano = this.montarArcano(param);
 
-        if(param.size()==1&&param.containsKey("all")){
-            String valor = this.retornaValor(param);
-            return this.buscaEmTudo(valor);
-        }
+
         if(param.size()==1&&param.containsKey("nome")){
             return this.buscaPorNome(arcano);
         }
@@ -165,14 +162,7 @@ public class BuscaPorParametroService {
             return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaEmTudo(String value) {
-        List<Arcano> lista = arcanoRepository
-                .findAll(value);
-        if(!lista.isEmpty()){
-            return ResponseEntity.status(200).body(lista);
-        }
-        return ResponseEntity.status(404).build();
-    }
+
 
     public Arcano montarArcano(HashMap<String, String> param){
 

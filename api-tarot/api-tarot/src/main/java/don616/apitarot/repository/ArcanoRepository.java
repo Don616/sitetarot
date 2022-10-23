@@ -32,5 +32,5 @@ public interface ArcanoRepository extends JpaRepository<Arcano,Integer> {
 
     List<Arcano> findByTituloContains(String titulo);
 
-    List<Arcano> findAll(String value);
+
 }
