@@ -1,6 +1,6 @@
-package don616.apitarot.model.service;
+package don616.apitarot.service;
 
-import don616.apitarot.model.entity.Arcano;
+import don616.apitarot.entity.Arcano;
 import don616.apitarot.repository.ArcanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

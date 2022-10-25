@@ -1,8 +1,6 @@
 package don616.apitarot.repository;
 
-import don616.apitarot.model.entity.Usuario;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import don616.apitarot.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

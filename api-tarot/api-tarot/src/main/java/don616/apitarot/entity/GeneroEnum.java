@@ -1,4 +1,4 @@
-package don616.apitarot.model;
+package don616.apitarot.entity;
 
 public enum GeneroEnum {
 

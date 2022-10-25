@@ -1,8 +1,8 @@
 package don616.apitarot.controller;
 
-import don616.apitarot.controller.form.CadastrarUsuarioForm;
-import don616.apitarot.model.entity.Usuario;
-import don616.apitarot.model.service.UsuarioService;
+import don616.apitarot.dtos.request.CadastrarUsuarioReq;
+import don616.apitarot.entity.Usuario;
+import don616.apitarot.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +24,7 @@ public class UsuarioController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> cadastrarUsuario(@RequestBody @Valid CadastrarUsuarioForm form){
+    public ResponseEntity<?> cadastrarUsuario(@RequestBody @Valid CadastrarUsuarioReq form){
         return usuarioService.cadastrarUsuario(form);
     }
 
@@ -46,7 +46,7 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizarUsuario(@PathVariable Long id,
-                                                   @RequestBody @Valid CadastrarUsuarioForm form){
+                                                   @RequestBody @Valid CadastrarUsuarioReq form){
         return usuarioService.atualizarUsuario(id,form);
     }
 

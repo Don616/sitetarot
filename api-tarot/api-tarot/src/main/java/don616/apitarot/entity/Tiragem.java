@@ -1,6 +1,7 @@
-package don616.apitarot.model.entity;
+package don616.apitarot.entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class Tiragem {
@@ -8,7 +9,7 @@ public class Tiragem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String tiragemId;
+    private UUID tiragemId;
     private EnumEstiloTiragem estiloTiragem;
     private String dataHora;
     private Integer posicao;
@@ -22,7 +23,7 @@ public class Tiragem {
 
     public Tiragem(){}
 
-    public Tiragem(String tiragemId,
+    public Tiragem(UUID tiragemId,
                    EnumEstiloTiragem estiloTiragem,
                    String dataHora,
                    Integer posicao,
@@ -39,7 +40,7 @@ public class Tiragem {
     }
 
     public Tiragem(Integer id,
-                   String tiragemId,
+                   UUID tiragemId,
                    EnumEstiloTiragem estiloTiragem,
                    String dataHora,
                    Usuario usuario,
@@ -60,11 +61,11 @@ public class Tiragem {
         this.id = id;
     }
 
-    public String getTiragemId() {
+    public UUID getTiragemId() {
         return tiragemId;
     }
 
-    public void setTiragemId(String tiragemId) {
+    public void setTiragemId(UUID tiragemId) {
         this.tiragemId = tiragemId;
     }
 

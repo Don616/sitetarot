@@ -1,7 +1,7 @@
-package don616.apitarot.model.service;
+package don616.apitarot.service;
 
-import don616.apitarot.controller.form.CadastrarUsuarioForm;
-import don616.apitarot.model.entity.Usuario;
+import don616.apitarot.dtos.request.CadastrarUsuarioReq;
+import don616.apitarot.entity.Usuario;
 import don616.apitarot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public ResponseEntity<?> cadastrarUsuario(CadastrarUsuarioForm form){
+    public ResponseEntity<?> cadastrarUsuario(CadastrarUsuarioReq form){
 
             if (usuarioRepository.findByEmail(form.getEmail()).isEmpty()) {
                 Usuario usuario = form.converter();
@@ -58,7 +58,7 @@ public class UsuarioService {
 
 
 
-    public ResponseEntity<String> atualizarUsuario(Long id, CadastrarUsuarioForm form) {
+    public ResponseEntity<String> atualizarUsuario(Long id, CadastrarUsuarioReq form) {
 
             Optional<Usuario> usuario = buscarUsuarioPorId(id);
 

@@ -1,8 +1,8 @@
 package don616.apitarot.controller;
 
-import don616.apitarot.controller.form.CadastrarTiragem;
-import don616.apitarot.model.entity.EnumEstiloTiragem;
-import don616.apitarot.model.service.TiragemService;
+import don616.apitarot.dtos.request.CadastrarTiragemReq;
+import don616.apitarot.entity.EnumEstiloTiragem;
+import don616.apitarot.service.TiragemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class TiragemController {
     TiragemService tiragemService;
 
     @PostMapping
-    public ResponseEntity<?> postTiragem(@RequestBody @Valid List<CadastrarTiragem> tiragem){
+    public ResponseEntity<?> postTiragem(@RequestBody @Valid List<CadastrarTiragemReq> tiragem){
         return tiragemService.cadastrarTiragem(tiragem);
     }
 

@@ -1,6 +1,6 @@
 package don616.apitarot.repository;
 
-import don616.apitarot.model.entity.Arcano;
+import don616.apitarot.entity.Arcano;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,10 +1,10 @@
-package don616.apitarot.model.service;
+package don616.apitarot.service;
 
-import don616.apitarot.controller.form.CadastrarTiragem;
-import don616.apitarot.model.entity.Arcano;
-import don616.apitarot.model.entity.EnumEstiloTiragem;
-import don616.apitarot.model.entity.Tiragem;
-import don616.apitarot.model.entity.Usuario;
+import don616.apitarot.dtos.request.CadastrarTiragemReq;
+import don616.apitarot.entity.Arcano;
+import don616.apitarot.entity.EnumEstiloTiragem;
+import don616.apitarot.entity.Tiragem;
+import don616.apitarot.entity.Usuario;
 import don616.apitarot.repository.TiragemRepository;
 import don616.apitarot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TiragemService {
@@ -27,10 +28,10 @@ public class TiragemService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public ResponseEntity<?> cadastrarTiragem(List<CadastrarTiragem> tiragens) {
-        String uuid = String.valueOf(new UUIDTiragemIdService());
+    public ResponseEntity<?> cadastrarTiragem(List<CadastrarTiragemReq> tiragens) {
+        UUID uuid = UUID.randomUUID();
         Integer posicao = 0;
-        for(CadastrarTiragem tiragem : tiragens){
+        for(CadastrarTiragemReq tiragem : tiragens){
             Tiragem novaTiragem = tiragem.criarTiragem(tiragem,uuid,posicao);
             posicao++;
             tiragemRepository.save(novaTiragem);
@@ -41,13 +42,13 @@ public class TiragemService {
 
     public ResponseEntity<?> fazerTiragem(Long id, EnumEstiloTiragem estiloTiragem) {
         List<Arcano> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
-        List<CadastrarTiragem> tiragens = new ArrayList<>();
+        List<CadastrarTiragemReq> tiragens = new ArrayList<>();
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         if(usuario.isPresent()){
 
             for(Arcano arcano : listaArcanos){
                 Boolean isReversa = jogadasService.isReversa();
-                CadastrarTiragem tiragem = new CadastrarTiragem(estiloTiragem,isReversa,usuario.get(),arcano);
+                CadastrarTiragemReq tiragem = new CadastrarTiragemReq(estiloTiragem,isReversa,usuario.get(),arcano);
                 tiragens.add(tiragem);
             }
 
@@ -60,11 +61,11 @@ public class TiragemService {
 
     public ResponseEntity<?> fazerTiragem(EnumEstiloTiragem estiloTiragem) {
         List<Arcano> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
-        List<CadastrarTiragem> tiragens = new ArrayList<>();
+        List<CadastrarTiragemReq> tiragens = new ArrayList<>();
 
         for(Arcano arcano : listaArcanos) {
             Boolean isReversa = jogadasService.isReversa();
-            CadastrarTiragem tiragem = new CadastrarTiragem(estiloTiragem, isReversa, null, arcano);
+            CadastrarTiragemReq tiragem = new CadastrarTiragemReq(estiloTiragem, isReversa, null, arcano);
             tiragens.add(tiragem);
         }
         return ResponseEntity.status(200).body(tiragens);

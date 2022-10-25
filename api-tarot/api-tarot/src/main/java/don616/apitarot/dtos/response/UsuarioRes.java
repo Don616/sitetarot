@@ -1,41 +1,20 @@
-package don616.apitarot.model.entity;
-
-import com.sun.istack.NotNull;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
+package don616.apitarot.dtos.response;
 
 
-@Entity
-public class Usuario {
+import don616.apitarot.entity.Usuario;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UsuarioRes {
+
+
+
     private Long id;
-    @NotNull
     private String nome;
-    @NotNull
-    @Email
     private String email;
-    @NotNull
-    private String senha;
     private Character genero;
     private String dataNascimento;
 
-    public Usuario(){}
-
-    public Usuario(String nome, String email, String senha, Character genero, String dataNascimento) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.genero = genero;
-        this.dataNascimento = dataNascimento;
+    public UsuarioRes(Usuario usuario) {
     }
-
-
 
     public Long getId() {
         return id;
@@ -61,14 +40,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public Character getGenero() {
         return genero;
     }
@@ -81,9 +52,9 @@ public class Usuario {
         return dataNascimento;
     }
 
-
-
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+
 }

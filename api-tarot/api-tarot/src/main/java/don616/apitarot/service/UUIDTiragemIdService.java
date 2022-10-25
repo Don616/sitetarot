@@ -1,4 +1,4 @@
-package don616.apitarot.model.service;
+package don616.apitarot.service;
 
 import org.springframework.stereotype.Service;
 

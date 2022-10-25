@@ -1,6 +1,6 @@
-package don616.apitarot.model.service;
+package don616.apitarot.service;
 
-import don616.apitarot.model.entity.Arcano;
+import don616.apitarot.entity.Arcano;
 import don616.apitarot.repository.ArcanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ArcanoService {

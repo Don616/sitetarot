@@ -1,4 +1,4 @@
-package don616.apitarot.model.entity;
+package don616.apitarot.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

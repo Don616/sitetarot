@@ -1,15 +1,49 @@
-package don616.apitarot.controller.form;
+package don616.apitarot.entity;
 
-import don616.apitarot.model.entity.Usuario;
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
 
 
-public class CadastrarUsuarioForm {
+@Entity
+public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
     private String nome;
+    @NotNull
+    @Email
     private String email;
+    @NotNull
     private String senha;
     private Character genero;
     private String dataNascimento;
+
+    public Usuario(){}
+
+    public Usuario(String nome, String email, String senha, Character genero, String dataNascimento) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.genero = genero;
+        this.dataNascimento = dataNascimento;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -47,11 +81,9 @@ public class CadastrarUsuarioForm {
         return dataNascimento;
     }
 
+
+
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public Usuario converter(){
-        return new Usuario(nome,email,senha,genero,dataNascimento);
     }
 }

@@ -1,25 +1,26 @@
-package don616.apitarot.controller.form;
+package don616.apitarot.dtos.request;
 
-import don616.apitarot.model.entity.Arcano;
-import don616.apitarot.model.entity.EnumEstiloTiragem;
-import don616.apitarot.model.entity.Tiragem;
-import don616.apitarot.model.entity.Usuario;
+import don616.apitarot.entity.Arcano;
+import don616.apitarot.entity.EnumEstiloTiragem;
+import don616.apitarot.entity.Tiragem;
+import don616.apitarot.entity.Usuario;
 
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 
-public class CadastrarTiragem {
+public class CadastrarTiragemReq {
 
     private EnumEstiloTiragem estiloTiragem;
     private Boolean isReversa;
     private Usuario usuario;
     private Arcano arcano;
 
-    public CadastrarTiragem(){};
+    public CadastrarTiragemReq(){};
 
-    public CadastrarTiragem(EnumEstiloTiragem estiloTiragem, Boolean isReversa, Usuario usuario, Arcano arcano) {
+    public CadastrarTiragemReq(EnumEstiloTiragem estiloTiragem, Boolean isReversa, Usuario usuario, Arcano arcano) {
         this.estiloTiragem = estiloTiragem;
         this.isReversa = isReversa;
         this.usuario = usuario;
@@ -59,7 +60,7 @@ public class CadastrarTiragem {
     }
 
 
-    public Tiragem criarTiragem(CadastrarTiragem tiragem, String uuid, Integer posicao) {
+    public Tiragem criarTiragem(CadastrarTiragemReq tiragem, UUID uuid, Integer posicao) {
         String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         return new Tiragem(uuid,
                 tiragem.getEstiloTiragem(),

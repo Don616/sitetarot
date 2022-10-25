@@ -1,28 +1,15 @@
-package don616.apitarot.controller.dto;
+package don616.apitarot.dtos.request;
+
+import don616.apitarot.entity.Usuario;
 
 
-import don616.apitarot.model.entity.Usuario;
+public class CadastrarUsuarioReq {
 
-public class UsuarioDTO {
-
-
-
-    private Long id;
     private String nome;
     private String email;
+    private String senha;
     private Character genero;
     private String dataNascimento;
-
-    public UsuarioDTO(Usuario usuario) {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -38,6 +25,14 @@ public class UsuarioDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Character getGenero() {
@@ -56,5 +51,7 @@ public class UsuarioDTO {
         this.dataNascimento = dataNascimento;
     }
 
-
+    public Usuario converter(){
+        return new Usuario(nome,email,senha,genero,dataNascimento);
+    }
 }
