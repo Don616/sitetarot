@@ -9,7 +9,7 @@ public class Tiragem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private UUID tiragemId;
+    private String tiragemId;
     private EnumEstiloTiragem estiloTiragem;
     private String dataHora;
     private Integer posicao;
@@ -23,7 +23,7 @@ public class Tiragem {
 
     public Tiragem(){}
 
-    public Tiragem(UUID tiragemId,
+    public Tiragem(String tiragemId,
                    EnumEstiloTiragem estiloTiragem,
                    String dataHora,
                    Integer posicao,
@@ -40,7 +40,7 @@ public class Tiragem {
     }
 
     public Tiragem(Integer id,
-                   UUID tiragemId,
+                   String tiragemId,
                    EnumEstiloTiragem estiloTiragem,
                    String dataHora,
                    Usuario usuario,
@@ -61,11 +61,11 @@ public class Tiragem {
         this.id = id;
     }
 
-    public UUID getTiragemId() {
+    public String getTiragemId() {
         return tiragemId;
     }
 
-    public void setTiragemId(UUID tiragemId) {
+    public void setTiragemId(String tiragemId) {
         this.tiragemId = tiragemId;
     }
 

@@ -60,7 +60,7 @@ public class CadastrarTiragemReq {
     }
 
 
-    public Tiragem criarTiragem(CadastrarTiragemReq tiragem, UUID uuid, Integer posicao) {
+    public Tiragem criarTiragem(CadastrarTiragemReq tiragem, String uuid, Integer posicao) {
         String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         return new Tiragem(uuid,
                 tiragem.getEstiloTiragem(),

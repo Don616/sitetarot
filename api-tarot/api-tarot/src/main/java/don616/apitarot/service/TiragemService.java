@@ -29,7 +29,7 @@ public class TiragemService {
     UsuarioRepository usuarioRepository;
 
     public ResponseEntity<?> cadastrarTiragem(List<CadastrarTiragemReq> tiragens) {
-        UUID uuid = UUID.randomUUID();
+        String uuid = UUID.randomUUID().toString();
         Integer posicao = 0;
         for(CadastrarTiragemReq tiragem : tiragens){
             Tiragem novaTiragem = tiragem.criarTiragem(tiragem,uuid,posicao);
