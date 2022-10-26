@@ -1,7 +1,7 @@
 package don616.apitarot.dtos.response;
 
 
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.UsuarioEntity;
 
 public class UsuarioRes {
 
@@ -13,7 +13,7 @@ public class UsuarioRes {
     private Character genero;
     private String dataNascimento;
 
-    public UsuarioRes(Usuario usuario) {
+    public UsuarioRes(UsuarioEntity usuario) {
     }
 
     public Long getId() {

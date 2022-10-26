@@ -2,15 +2,13 @@ package don616.apitarot.entity;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 
 @Entity
-public class Usuario {
+@Table(name = "tb_usuario")
+public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +23,9 @@ public class Usuario {
     private Character genero;
     private String dataNascimento;
 
-    public Usuario(){}
+    public UsuarioEntity(){}
 
-    public Usuario(String nome, String email, String senha, Character genero, String dataNascimento) {
+    public UsuarioEntity(String nome, String email, String senha, Character genero, String dataNascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

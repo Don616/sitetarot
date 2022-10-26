@@ -1,6 +1,6 @@
 package don616.apitarot.service;
 
-import don616.apitarot.entity.Arcano;
+import don616.apitarot.entity.ArcanoEntity;
 import don616.apitarot.repository.ArcanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class BuscaPorParametroService {
 
     public ResponseEntity<?> buscaParam(HashMap<String, String> param) {
 
-        Arcano arcano = this.montarArcano(param);
+        ArcanoEntity arcano = this.montarArcano(param);
 
 
         if(param.size()==1&&param.containsKey("nome")){
@@ -59,9 +59,9 @@ public class BuscaPorParametroService {
 
 
 
-    private ResponseEntity<?> buscaPorCorrespondeciaAstrologicaEPorNaipe(Arcano arcano) {
+    private ResponseEntity<?> buscaPorCorrespondeciaAstrologicaEPorNaipe(ArcanoEntity arcano) {
 
-        List<Arcano> lista = arcanoRepository
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByCorrespondenciaAstrologicaContainsAndNaipeContains
                         (arcano.getCorrespondenciaAstrologica(),arcano.getNaipe());
         if (!lista.isEmpty()) {
@@ -70,9 +70,9 @@ public class BuscaPorParametroService {
         return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaPorCorrespondeciaAstrologicaEPorCategoria(Arcano arcano) {
+    private ResponseEntity<?> buscaPorCorrespondeciaAstrologicaEPorCategoria(ArcanoEntity arcano) {
 
-        List<Arcano> lista = arcanoRepository
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByCorrespondenciaAstrologicaContainsAndCategoriaContains
                         (arcano.getCorrespondenciaAstrologica(),arcano.getCategoria());
         if (!lista.isEmpty()) {
@@ -82,8 +82,8 @@ public class BuscaPorParametroService {
 
     }
 
-    private ResponseEntity<?> buscaPorRunaNordica(Arcano arcano) {
-        List<Arcano> lista = arcanoRepository
+    private ResponseEntity<?> buscaPorRunaNordica(ArcanoEntity arcano) {
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByRunaNordicaContains(arcano.getRunaNordica());
         if (!lista.isEmpty()) {
             return ResponseEntity.status(200).body(lista);
@@ -91,8 +91,8 @@ public class BuscaPorParametroService {
         return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaPorLetraHebraica(Arcano arcano) {
-        List<Arcano> lista = arcanoRepository
+    private ResponseEntity<?> buscaPorLetraHebraica(ArcanoEntity arcano) {
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByLetraHebraicaContains(arcano.getLetraHebraica());
         if (!lista.isEmpty()) {
             return ResponseEntity.status(200).body(lista);
@@ -100,8 +100,8 @@ public class BuscaPorParametroService {
         return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaPorCorrespondeciaAstrologica(Arcano arcano) {
-        List<Arcano> lista = arcanoRepository
+    private ResponseEntity<?> buscaPorCorrespondeciaAstrologica(ArcanoEntity arcano) {
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByCorrespondenciaAstrologicaContains(arcano.getCorrespondenciaAstrologica());
         if (!lista.isEmpty()) {
             return ResponseEntity.status(200).body(lista);
@@ -109,8 +109,8 @@ public class BuscaPorParametroService {
         return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaPorNaipe(Arcano arcano) {
-        List<Arcano> lista = arcanoRepository
+    private ResponseEntity<?> buscaPorNaipe(ArcanoEntity arcano) {
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByNaipeContains(arcano.getNaipe());
         if (!lista.isEmpty()) {
             return ResponseEntity.status(200).body(lista);
@@ -118,9 +118,9 @@ public class BuscaPorParametroService {
         return ResponseEntity.status(404).build();
     }
 
-    private ResponseEntity<?> buscaPorNomeEPorCategoria(Arcano arcano) {
+    private ResponseEntity<?> buscaPorNomeEPorCategoria(ArcanoEntity arcano) {
 
-        List<Arcano> lista = arcanoRepository
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByNomeContainsAndCategoriaContains(arcano.getNome(),arcano.getCategoria());
         if (!lista.isEmpty()) {
             return ResponseEntity.status(200).body(lista);
@@ -130,8 +130,8 @@ public class BuscaPorParametroService {
     }
 
 
-    private ResponseEntity<?> buscaPorCategoria(Arcano arcano) {
-            List<Arcano> lista = arcanoRepository
+    private ResponseEntity<?> buscaPorCategoria(ArcanoEntity arcano) {
+            List<ArcanoEntity> lista = arcanoRepository
                     .findByCategoriaContains(arcano.getCategoria());
             if (!lista.isEmpty()) {
                 return ResponseEntity.status(200).body(lista);
@@ -141,9 +141,9 @@ public class BuscaPorParametroService {
 
     }
 
-    private ResponseEntity<?> buscaPorTitulo(Arcano arcano) {
+    private ResponseEntity<?> buscaPorTitulo(ArcanoEntity arcano) {
 
-        List<Arcano> lista = arcanoRepository
+        List<ArcanoEntity> lista = arcanoRepository
                 .findByTituloContains(arcano.getTitulo());
         if(!lista.isEmpty()){
             return ResponseEntity.status(200).body(lista);
@@ -152,9 +152,9 @@ public class BuscaPorParametroService {
 
     }
 
-    public ResponseEntity<?> buscaPorNome(Arcano arcano){
+    public ResponseEntity<?> buscaPorNome(ArcanoEntity arcano){
 
-            List<Arcano> lista = arcanoRepository
+            List<ArcanoEntity> lista = arcanoRepository
                     .findByNomeContains(arcano.getNome());
             if(!lista.isEmpty()){
                 return ResponseEntity.status(200).body(lista);
@@ -164,9 +164,9 @@ public class BuscaPorParametroService {
 
 
 
-    public Arcano montarArcano(HashMap<String, String> param){
+    public ArcanoEntity montarArcano(HashMap<String, String> param){
 
-        Arcano arcanoParam = new Arcano();
+        ArcanoEntity arcanoParam = new ArcanoEntity();
         for(Map.Entry<String,String> entrada : param.entrySet()){
 
             if(entrada.getKey().equalsIgnoreCase("nome")){

@@ -1,6 +1,6 @@
 package don616.apitarot.dtos.request;
 
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.UsuarioEntity;
 
 
 public class CadastrarUsuarioReq {
@@ -51,7 +51,7 @@ public class CadastrarUsuarioReq {
         this.dataNascimento = dataNascimento;
     }
 
-    public Usuario converter(){
-        return new Usuario(nome,email,senha,genero,dataNascimento);
+    public UsuarioEntity converter(){
+        return new UsuarioEntity(nome,email,senha,genero,dataNascimento);
     }
 }

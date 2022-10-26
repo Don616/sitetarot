@@ -1,26 +1,25 @@
 package don616.apitarot.dtos.request;
 
-import don616.apitarot.entity.Arcano;
-import don616.apitarot.entity.EnumEstiloTiragem;
-import don616.apitarot.entity.Tiragem;
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.ArcanoEntity;
+import don616.apitarot.enums.EnumEstiloTiragem;
+import don616.apitarot.entity.TiragemEntity;
+import don616.apitarot.entity.UsuarioEntity;
 
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
 
 
 public class CadastrarTiragemReq {
 
     private EnumEstiloTiragem estiloTiragem;
     private Boolean isReversa;
-    private Usuario usuario;
-    private Arcano arcano;
+    private UsuarioEntity usuario;
+    private ArcanoEntity arcano;
 
     public CadastrarTiragemReq(){};
 
-    public CadastrarTiragemReq(EnumEstiloTiragem estiloTiragem, Boolean isReversa, Usuario usuario, Arcano arcano) {
+    public CadastrarTiragemReq(EnumEstiloTiragem estiloTiragem, Boolean isReversa, UsuarioEntity usuario, ArcanoEntity arcano) {
         this.estiloTiragem = estiloTiragem;
         this.isReversa = isReversa;
         this.usuario = usuario;
@@ -43,26 +42,26 @@ public class CadastrarTiragemReq {
         this.estiloTiragem = estiloTiragem;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioEntity getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
 
-    public Arcano getArcano() {
+    public ArcanoEntity getArcano() {
         return arcano;
     }
 
-    public void setArcano(Arcano arcano) {
+    public void setArcano(ArcanoEntity arcano) {
         this.arcano = arcano;
     }
 
 
-    public Tiragem criarTiragem(CadastrarTiragemReq tiragem, String uuid, Integer posicao) {
+    public TiragemEntity criarTiragem(CadastrarTiragemReq tiragem, String uuid, Integer posicao) {
         String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-        return new Tiragem(uuid,
+        return new TiragemEntity(uuid,
                 tiragem.getEstiloTiragem(),
                 dataHora,
                 posicao,

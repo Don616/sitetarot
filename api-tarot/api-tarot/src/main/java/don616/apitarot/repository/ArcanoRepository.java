@@ -1,36 +1,36 @@
 package don616.apitarot.repository;
 
-import don616.apitarot.entity.Arcano;
+import don616.apitarot.entity.ArcanoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ArcanoRepository extends JpaRepository<Arcano,Integer> {
+public interface ArcanoRepository extends JpaRepository<ArcanoEntity,Integer> {
 
-    Arcano findByNumero(Integer numero);
+    ArcanoEntity findByNumero(Integer numero);
 
-    List<Arcano> findByNomeContains(String nome);
+    List<ArcanoEntity> findByNomeContains(String nome);
 
-    List<Arcano> findByCategoriaContains(String value);
-
-
-    List<Arcano> findByNomeContainsAndCategoriaContains(String nome, String categoria);
-
-    List<Arcano> findByNaipeContains(String naipe);
+    List<ArcanoEntity> findByCategoriaContains(String value);
 
 
-    List<Arcano> findByLetraHebraicaContains(String letraHebraica);
+    List<ArcanoEntity> findByNomeContainsAndCategoriaContains(String nome, String categoria);
 
-    List<Arcano> findByRunaNordicaContains(String runaNordica);
-
-    List<Arcano> findByCorrespondenciaAstrologicaContains(String correspondenciaAstrologica);
+    List<ArcanoEntity> findByNaipeContains(String naipe);
 
 
-    List<Arcano> findByCorrespondenciaAstrologicaContainsAndCategoriaContains(String correspondenciaAstrologica, String categoria);
+    List<ArcanoEntity> findByLetraHebraicaContains(String letraHebraica);
 
-    List<Arcano> findByCorrespondenciaAstrologicaContainsAndNaipeContains(String correspondenciaAstrologica, String naipe);
+    List<ArcanoEntity> findByRunaNordicaContains(String runaNordica);
 
-    List<Arcano> findByTituloContains(String titulo);
+    List<ArcanoEntity> findByCorrespondenciaAstrologicaContains(String correspondenciaAstrologica);
+
+
+    List<ArcanoEntity> findByCorrespondenciaAstrologicaContainsAndCategoriaContains(String correspondenciaAstrologica, String categoria);
+
+    List<ArcanoEntity> findByCorrespondenciaAstrologicaContainsAndNaipeContains(String correspondenciaAstrologica, String naipe);
+
+    List<ArcanoEntity> findByTituloContains(String titulo);
 
 
 }

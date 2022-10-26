@@ -1,6 +1,6 @@
 package don616.apitarot.service;
 
-import don616.apitarot.entity.Arcano;
+import don616.apitarot.entity.ArcanoEntity;
 import don616.apitarot.repository.ArcanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class ArcanoService {
     BuscaPorParametroService buscaPorParametroService;
 
     public ResponseEntity<?> getArcanos() {
-        List<Arcano> listaArcanos = arcanoRepository.findAll();
+        List<ArcanoEntity> listaArcanos = arcanoRepository.findAll();
         if(listaArcanos.isEmpty()){
             return ResponseEntity.status(204).build();
         }
@@ -28,7 +28,7 @@ public class ArcanoService {
 
     public ResponseEntity<?> getArcano(Integer numero) {
         if(numero>=0&&numero<=77){
-            Arcano arcano = arcanoRepository.findByNumero(numero);
+            ArcanoEntity arcano = arcanoRepository.findByNumero(numero);
             return ResponseEntity.status(200).body(arcano);
         }
         return ResponseEntity.status(404).body("Arcano não encontrado");

@@ -1,10 +1,12 @@
 package don616.apitarot.entity;
 
+import don616.apitarot.enums.EnumEstiloTiragem;
+
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
-public class Tiragem {
+@Table(name = "tb_tiragem")
+public class TiragemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,20 +18,20 @@ public class Tiragem {
     private Boolean isReversa;
     @ManyToOne
     @JoinColumn(name = "fk_usuario")
-    private Usuario usuario;
+    private UsuarioEntity usuario;
     @ManyToOne
     @JoinColumn(name = "fk_arcano")
-    private Arcano arcano;
+    private ArcanoEntity arcano;
 
-    public Tiragem(){}
+    public TiragemEntity(){}
 
-    public Tiragem(String tiragemId,
-                   EnumEstiloTiragem estiloTiragem,
-                   String dataHora,
-                   Integer posicao,
-                   Boolean isReversa,
-                   Usuario usuario,
-                   Arcano arcano) {
+    public TiragemEntity(String tiragemId,
+                         EnumEstiloTiragem estiloTiragem,
+                         String dataHora,
+                         Integer posicao,
+                         Boolean isReversa,
+                         UsuarioEntity usuario,
+                         ArcanoEntity arcano) {
         this.tiragemId = tiragemId;
         this.estiloTiragem = estiloTiragem;
         this.dataHora = dataHora;
@@ -39,12 +41,12 @@ public class Tiragem {
         this.arcano = arcano;
     }
 
-    public Tiragem(Integer id,
-                   String tiragemId,
-                   EnumEstiloTiragem estiloTiragem,
-                   String dataHora,
-                   Usuario usuario,
-                   Arcano arcano) {
+    public TiragemEntity(Integer id,
+                         String tiragemId,
+                         EnumEstiloTiragem estiloTiragem,
+                         String dataHora,
+                         UsuarioEntity usuario,
+                         ArcanoEntity arcano) {
         this.id = id;
         this.tiragemId = tiragemId;
         this.estiloTiragem = estiloTiragem;
@@ -101,19 +103,19 @@ public class Tiragem {
         isReversa = reversa;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioEntity getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
 
-    public Arcano getArcano() {
+    public ArcanoEntity getArcano() {
         return arcano;
     }
 
-    public void setArcano(Arcano arcano) {
+    public void setArcano(ArcanoEntity arcano) {
         this.arcano = arcano;
     }
 }

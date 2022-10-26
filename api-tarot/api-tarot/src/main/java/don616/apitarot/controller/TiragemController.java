@@ -1,7 +1,7 @@
 package don616.apitarot.controller;
 
 import don616.apitarot.dtos.request.CadastrarTiragemReq;
-import don616.apitarot.entity.EnumEstiloTiragem;
+import don616.apitarot.enums.EnumEstiloTiragem;
 import don616.apitarot.service.TiragemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

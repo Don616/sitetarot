@@ -1,7 +1,7 @@
 package don616.apitarot.service;
 
-import don616.apitarot.entity.Arcano;
-import don616.apitarot.entity.EnumEstiloTiragem;
+import don616.apitarot.entity.ArcanoEntity;
+import don616.apitarot.enums.EnumEstiloTiragem;
 import don616.apitarot.repository.ArcanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class JogadasService {
         return new Random().nextInt((max-min)+1)+min;
     }
 
-    public List<Arcano> fazerJogada(EnumEstiloTiragem estiloTiragem) {
+    public List<ArcanoEntity> fazerJogada(EnumEstiloTiragem estiloTiragem) {
 
         switch (estiloTiragem){
 
@@ -38,14 +38,14 @@ public class JogadasService {
 
     }
 
-    private List<Arcano> jogadaPassadoPresenteFuturo() {
-        List<Arcano> listaArcanos = new ArrayList<>();
+    private List<ArcanoEntity> jogadaPassadoPresenteFuturo() {
+        List<ArcanoEntity> listaArcanos = new ArrayList<>();
         Integer passado = this.randomNum(0,77);
         Integer presente = this.randomNum(0,77);
         Integer futuro = this.randomNum(0,77);
-        Arcano arcanoPassado = arcanoRepository.findByNumero(passado);
-        Arcano arcanoPresente = arcanoRepository.findByNumero(presente);
-        Arcano arcanoFuturo = arcanoRepository.findByNumero(futuro);
+        ArcanoEntity arcanoPassado = arcanoRepository.findByNumero(passado);
+        ArcanoEntity arcanoPresente = arcanoRepository.findByNumero(presente);
+        ArcanoEntity arcanoFuturo = arcanoRepository.findByNumero(futuro);
         listaArcanos.add(arcanoFuturo);
         listaArcanos.add(arcanoPresente);
         listaArcanos.add(arcanoPassado);
@@ -54,13 +54,13 @@ public class JogadasService {
 
     }
 
-    private List<Arcano> jogadaArcanoMaiorMenor() {
+    private List<ArcanoEntity> jogadaArcanoMaiorMenor() {
 
         Integer numArcanoMaior = this.randomNum(0,21);
         Integer numArcanoMenor = this.pegarSomenteArcanosMenores();
-        Arcano arcanoMaior = arcanoRepository.findByNumero(numArcanoMaior);
-        Arcano arcanoMenor = arcanoRepository.findByNumero(numArcanoMenor);
-        List<Arcano> listaArcanos = new ArrayList<>();
+        ArcanoEntity arcanoMaior = arcanoRepository.findByNumero(numArcanoMaior);
+        ArcanoEntity arcanoMenor = arcanoRepository.findByNumero(numArcanoMenor);
+        List<ArcanoEntity> listaArcanos = new ArrayList<>();
         listaArcanos.add(arcanoMaior);
         listaArcanos.add(arcanoMenor);
 
@@ -68,11 +68,11 @@ public class JogadasService {
 
     }
 
-    private List<Arcano> jogadaTiragemUmaCarta() {
+    private List<ArcanoEntity> jogadaTiragemUmaCarta() {
 
         Integer num = this.randomNum(0,77);
-        Arcano arcano = arcanoRepository.findByNumero(num);
-        List<Arcano> listaArcanos = new ArrayList<>();
+        ArcanoEntity arcano = arcanoRepository.findByNumero(num);
+        List<ArcanoEntity> listaArcanos = new ArrayList<>();
         listaArcanos.add(arcano);
 
 

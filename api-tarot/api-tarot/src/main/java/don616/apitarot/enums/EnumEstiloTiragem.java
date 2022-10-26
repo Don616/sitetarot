@@ -1,4 +1,4 @@
-package don616.apitarot.entity;
+package don616.apitarot.enums;
 
 public enum EnumEstiloTiragem {
 

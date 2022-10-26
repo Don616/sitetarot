@@ -2,10 +2,11 @@ package don616.apitarot.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Table;
 
 @Entity
-public class Arcano {
+@Table(name = "tb_arcano")
+public class ArcanoEntity {
 
     @Id
     private Integer numero;
@@ -18,16 +19,16 @@ public class Arcano {
     private String runaNordica;
 
 
-    public Arcano(){}
+    public ArcanoEntity(){}
 
-    public Arcano(Integer numero,
-                  String nome,
-                  String categoria,
-                  String titulo,
-                  String naipe,
-                  String correspondenciaAstrologica,
-                  String letraHebraica,
-                  String runaNordica) {
+    public ArcanoEntity(Integer numero,
+                        String nome,
+                        String categoria,
+                        String titulo,
+                        String naipe,
+                        String correspondenciaAstrologica,
+                        String letraHebraica,
+                        String runaNordica) {
 
         this.numero = numero;
         this.nome = nome;

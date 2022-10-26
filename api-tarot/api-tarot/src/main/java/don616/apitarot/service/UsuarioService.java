@@ -1,7 +1,7 @@
 package don616.apitarot.service;
 
 import don616.apitarot.dtos.request.CadastrarUsuarioReq;
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.UsuarioEntity;
 import don616.apitarot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,7 +23,7 @@ public class UsuarioService {
     public ResponseEntity<?> cadastrarUsuario(CadastrarUsuarioReq form){
 
             if (usuarioRepository.findByEmail(form.getEmail()).isEmpty()) {
-                Usuario usuario = form.converter();
+                UsuarioEntity usuario = form.converter();
                 usuarioRepository.save(usuario);
                 return ResponseEntity.status(201).body("Usuario cadastrado com sucesso");
             } else {
@@ -32,12 +32,12 @@ public class UsuarioService {
 
     }
 
-    public Optional<Usuario> buscarUsuarioPorId(Long id){
+    public Optional<UsuarioEntity> buscarUsuarioPorId(Long id){
         return usuarioRepository.findById(id);
     }
 
 
-    public Page<Usuario> listarUsuarios(Pageable pageable, Map<String, String> param){
+    public Page<UsuarioEntity> listarUsuarios(Pageable pageable, Map<String, String> param){
 
         return usuarioRepository.findAll(pageable);
 
@@ -46,7 +46,7 @@ public class UsuarioService {
 
     @Transactional
     public ResponseEntity<String> deletarUsuario(Long id){
-        Optional<Usuario> usuario = this.buscarUsuarioPorId(id);
+        Optional<UsuarioEntity> usuario = this.buscarUsuarioPorId(id);
 
         if(usuario.isPresent()){
             usuarioRepository.deleteById(id);
@@ -60,11 +60,11 @@ public class UsuarioService {
 
     public ResponseEntity<String> atualizarUsuario(Long id, CadastrarUsuarioReq form) {
 
-            Optional<Usuario> usuario = buscarUsuarioPorId(id);
+            Optional<UsuarioEntity> usuario = buscarUsuarioPorId(id);
 
             if (usuario.isPresent()) {
 
-                Usuario usuarioCadastrado = usuario.get();
+                UsuarioEntity usuarioCadastrado = usuario.get();
 
                 if (!usuarioCadastrado.getNome().equals(form.getNome())) {
                     usuarioCadastrado.setNome(form.getNome());
@@ -93,7 +93,7 @@ public class UsuarioService {
 
     public ResponseEntity<?> getUsuarioPorId(Long id) {
 
-        Optional<Usuario> usuario = buscarUsuarioPorId(id);
+        Optional<UsuarioEntity> usuario = buscarUsuarioPorId(id);
 
         if(usuario.isPresent()){
             return ResponseEntity.status(200).body(usuario);

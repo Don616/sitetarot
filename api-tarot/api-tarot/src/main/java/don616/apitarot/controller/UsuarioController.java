@@ -1,7 +1,7 @@
 package don616.apitarot.controller;
 
 import don616.apitarot.dtos.request.CadastrarUsuarioReq;
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.UsuarioEntity;
 import don616.apitarot.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,8 +29,8 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public Page<Usuario> listarUsuarios(Pageable pageable,
-                                        @RequestParam(required = false) Map<String,String> param){
+    public Page<UsuarioEntity> listarUsuarios(Pageable pageable,
+                                              @RequestParam(required = false) Map<String,String> param){
         return usuarioService.listarUsuarios(pageable,param);
     }
 

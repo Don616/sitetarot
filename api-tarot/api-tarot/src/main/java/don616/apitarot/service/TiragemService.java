@@ -1,10 +1,10 @@
 package don616.apitarot.service;
 
 import don616.apitarot.dtos.request.CadastrarTiragemReq;
-import don616.apitarot.entity.Arcano;
-import don616.apitarot.entity.EnumEstiloTiragem;
-import don616.apitarot.entity.Tiragem;
-import don616.apitarot.entity.Usuario;
+import don616.apitarot.entity.ArcanoEntity;
+import don616.apitarot.enums.EnumEstiloTiragem;
+import don616.apitarot.entity.TiragemEntity;
+import don616.apitarot.entity.UsuarioEntity;
 import don616.apitarot.repository.TiragemRepository;
 import don616.apitarot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class TiragemService {
         String uuid = UUID.randomUUID().toString();
         Integer posicao = 0;
         for(CadastrarTiragemReq tiragem : tiragens){
-            Tiragem novaTiragem = tiragem.criarTiragem(tiragem,uuid,posicao);
+            TiragemEntity novaTiragem = tiragem.criarTiragem(tiragem,uuid,posicao);
             posicao++;
             tiragemRepository.save(novaTiragem);
         }
@@ -41,12 +41,12 @@ public class TiragemService {
     }
 
     public ResponseEntity<?> fazerTiragem(Long id, EnumEstiloTiragem estiloTiragem) {
-        List<Arcano> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
+        List<ArcanoEntity> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
         List<CadastrarTiragemReq> tiragens = new ArrayList<>();
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        Optional<UsuarioEntity> usuario = usuarioRepository.findById(id);
         if(usuario.isPresent()){
 
-            for(Arcano arcano : listaArcanos){
+            for(ArcanoEntity arcano : listaArcanos){
                 Boolean isReversa = jogadasService.isReversa();
                 CadastrarTiragemReq tiragem = new CadastrarTiragemReq(estiloTiragem,isReversa,usuario.get(),arcano);
                 tiragens.add(tiragem);
@@ -60,10 +60,10 @@ public class TiragemService {
     }
 
     public ResponseEntity<?> fazerTiragem(EnumEstiloTiragem estiloTiragem) {
-        List<Arcano> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
+        List<ArcanoEntity> listaArcanos = jogadasService.fazerJogada(estiloTiragem);
         List<CadastrarTiragemReq> tiragens = new ArrayList<>();
 
-        for(Arcano arcano : listaArcanos) {
+        for(ArcanoEntity arcano : listaArcanos) {
             Boolean isReversa = jogadasService.isReversa();
             CadastrarTiragemReq tiragem = new CadastrarTiragemReq(estiloTiragem, isReversa, null, arcano);
             tiragens.add(tiragem);
